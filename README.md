@@ -1,105 +1,126 @@
-# Healthier UK Website (`www.healthieruk.org`)
+# Healthier UK — website (`www.healthieruk.org`)
 
-A clean, modern, accessible, and responsive website rebuilt from scratch using pure HTML5, CSS3, and lightweight vanilla JavaScript.
-
----
-
-## 🌟 Overview
-
-**Healthier UK** is a UK-wide coalition initiated by the **College of Medicine** and the **British Society of Lifestyle Medicine**, dedicated to creating the conditions for health across England, Scotland, Wales, and Northern Ireland.
-
-This codebase replaces the legacy builder site with a fast, self-contained, and customizable static website ready to be version-controlled with Git and deployed to any static hosting provider.
+A static site in plain HTML, CSS and vanilla JavaScript. No build step, no dependencies.
 
 ---
 
-## 📁 Project Structure
+## What changed in the redesign
+
+The site was rebuilt around one idea: **Healthier UK should look like a club anyone could
+join** — a community leader, a local charity, a council team, or one curious person.
+
+- **New design system** — warm cream backgrounds, the logo's own greens and teals, a coral
+  accent, soft organic shapes and generous rounded corners. Typeface is **Nunito** /
+  **Nunito Sans**: rounded and friendly rather than institutional.
+- **The logo is now a real vector.** `assets/images/logo-tree.svg` is a hand-built SVG
+  recreation of the tree, with every leaf, bird, note, heart, runner, fruit bowl and family
+  group as its own path. It scales cleanly, has a transparent background and can be animated.
+  `logo-tree-light.svg` is the same mark with a white trunk, for dark backgrounds.
+- **Splash / enter screen** on the home page. The tree assembles leaf by leaf; clicking
+  *Come on in* scatters the leaves outward across the screen to reveal the home page beneath.
+  Shown once per browser session, always skippable, and disabled entirely for visitors who
+  have "reduce motion" turned on.
+- **Layered scrolling sections** — panels with rounded tops that overlap the section above.
+- **Scrolling marquee** of the everyday conditions that create health.
+- **Simplified navigation** — Home / About / Four nations / News & blogs / Research /
+  Contact, plus a *Join us* button. Every page from the old site is still reachable.
+- **Friendlier copy** — sentence-case headings, UK spelling, and a "who's it for" section
+  aimed squarely at people who don't think of themselves as health experts.
+
+---
+
+## Project structure
 
 ```
 healthier-uk/
-├── index.html                           # Homepage (Hero, Pillars, Policy, Gallery, Contact)
-├── about-us.html                        # About Us & Mission statement
-├── team.html                            # Leadership & Coalition Members
-├── news.html                            # News & Events overview
-├── news-launch-westminster.html         # News: Westminster Parliamentary Launch
-├── news-parliamentary-launch.html       # News: Parliamentary Launch (England)
-├── news-meeting-rcgp.html               # News: RCGP 30 Euston Sq Meeting
-├── news-meeting-richmond.html           # News: Paradise Rd Richmond Meeting
-├── blogs.html                           # Blogs directory
-├── blog-welcome.html                    # Welcome blog by Dr William Bird MBE
-├── wales.html                           # Wales: Community Capacity Report & Reflections
-├── scotland.html                        # Scotland Overview
-├── england.html                         # England Overview & Focus Hub
-├── arms-length-bodies.html              # England: Arms Length Bodies
-├── parliamentary-launch.html            # England: Parliamentary Launch
-├── combined-authorities.html            # England: Mayoral Combined Authorities
-├── west-midlands.html                   # England: West Midlands Case Study
-├── neighbourhood-health.html            # England: Neighbourhood Health
-├── northern-ireland.html                # Northern Ireland Overview
-├── research-portal.html                 # Research Portal & Evidence Base
-├── contact.html                         # Contact & Inquiry Form
-├── assets/
-│   ├── css/
-│   │   └── style.css                    # Unified design system, CSS variables & responsive layout
-│   ├── js/
-│   │   └── main.js                      # Navigation drawer, dropdowns, lightbox, and forms
-│   └── images/                          # Authentic logos, team photos, hero and gallery assets
-├── .gitignore                           # Git ignore rules
-└── README.md                            # Documentation and deployment guide
+├── index.html                        # Home (splash, hero, join, pillars, policy, gallery)
+├── about-us.html                     # About us & mission
+├── team.html                         # Leadership & coalition members
+├── news.html                         # News & events
+│   ├── news-launch-westminster.html
+│   ├── news-parliamentary-launch.html
+│   ├── news-meeting-rcgp.html
+│   └── news-meeting-richmond.html
+├── blogs.html                        # Blog index
+│   └── blog-welcome.html
+├── england.html                      # England hub
+│   ├── arms-length-bodies.html
+│   ├── parliamentary-launch.html
+│   ├── combined-authorities.html
+│   ├── west-midlands.html
+│   └── neighbourhood-health.html
+├── wales.html / scotland.html / northern-ireland.html
+├── research-portal.html
+├── contact.html
+└── assets/
+    ├── css/style.css                 # Design tokens + every component
+    ├── js/main.js                    # Nav, splash, reveal, marquee, lightbox, forms
+    └── images/
+        ├── logo-tree.svg             # Vector tree (dark trunk — light backgrounds)
+        ├── logo-tree-light.svg       # Vector tree (white trunk — dark backgrounds)
+        └── …                         # Photography, team portraits, favicon
 ```
+
+The wordmark "Healthier UK" is set in live text next to the tree, not baked into an image,
+so it always matches the site's typeface and stays crisp at any size.
 
 ---
 
-## 🚀 Running Locally
+## Running locally
 
-Because this site is built with pure static HTML, CSS, and JS, no complex build steps or node modules are required!
-
-### Option 1: Double-click
-Open `index.html` directly in any web browser (Chrome, Safari, Firefox, Edge).
-
-### Option 2: Local HTTP Server (Recommended)
-From this directory, start a lightweight Python web server:
 ```bash
 python3 -m http.server 8000
 ```
-Then visit [`http://localhost:8000`](http://localhost:8000) in your browser.
+
+Then open <http://localhost:8000>. Opening `index.html` directly by double-clicking also
+works, though `sessionStorage` (used to remember the splash) behaves better over HTTP.
 
 ---
 
-## 🌐 Deploying to GitHub & GitHub Pages
+## Editing
 
-To upload this project to your GitHub repository and publish it:
+**Colours and type** live at the top of `assets/css/style.css` under `:root`. Changing
+`--hu-green`, `--hu-coral` or `--font-display` re-skins the whole site.
 
-1. **Initialize Git repository**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Rebuild Healthier UK website with HTML/CSS/JS"
-   ```
+**The header and footer** are repeated in every page (there's no templating). If you change
+one, change them all — search for `<header class="site-header">`.
 
-2. **Connect to your GitHub repo**:
-   ```bash
-   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
-   git branch -M main
-   git push -u origin main
-   ```
+**The splash animation** is in `initSplash()` in `assets/js/main.js`. Useful dials:
 
-3. **Enable GitHub Pages**:
-   - Go to your repository settings on GitHub &rarr; **Pages**.
-   - Under **Build and deployment**, select **Deploy from a branch**.
-   - Choose `main` branch and `/ (root)` folder, then click **Save**.
-   - Your website will be live in seconds at `https://<your-username>.github.io/<your-repo-name>/`.
+| What | Where |
+|---|---|
+| How far the leaves fly | `dist` — multiplier on `reach` |
+| How much they tumble | `rot` |
+| Wave/stagger between leaves | `delay` |
+| Overall duration | `transform` timing in `.splash.is-scattering .hu-petal` (CSS) |
 
----
+To show the splash on every visit rather than once per session, remove the
+`sessionStorage.setItem('huSplashSeen', …)` line.
 
-## 🎨 Customizing Styles & Content
-
-- **Colors & Typography**: Modify CSS variables in [`assets/css/style.css`](assets/css/style.css) under `:root`.
-- **Navigation Links**: Edit the `<header>` block in any `.html` file.
-- **Images**: Place any new images in `assets/images/`.
-- **Forms**: To route contact form submissions to your email, you can integrate [Formspree](https://formspree.io) by setting `action="https://formspree.io/f/YOUR_FORM_ID"` in `<form>`.
+**Forms** currently show a confirmation message without sending anything. To make them
+live, point them at a form service — e.g. `action="https://formspree.io/f/YOUR_FORM_ID"`
+and `method="POST"` — and remove the `data-ajax="true"` attribute.
 
 ---
 
-## 📄 License & Attribution
+## Things worth doing next
 
-&copy; 2026 Healthier UK. Initiated by College of Medicine &amp; British Society of Lifestyle Medicine.
+- **Photography is the weakest link.** Several stock images are generic or off-message.
+  Real photographs of coalition members, meetings and community projects would do more for
+  the "club you can join" feeling than any amount of CSS.
+- **Give members somewhere to appear** — a wall of member organisations' logos would suit
+  the scrolling marquee, and would make the coalition feel populated.
+- Consider a proper join form (name, organisation, nation, interest) rather than a general
+  contact form.
+
+---
+
+## Deploying
+
+Any static host works — GitHub Pages, Netlify, Cloudflare Pages. For GitHub Pages: push to
+`main`, then Settings → Pages → Deploy from a branch → `main` / root.
+
+---
+
+© 2026 Healthier UK. Initiated by the College of Medicine & the British Society of
+Lifestyle Medicine.

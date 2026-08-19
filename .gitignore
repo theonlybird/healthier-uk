@@ -11,3 +11,7 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.log
+
+# Local safety copies — the pre-redesign site is already in git history
+_backup-before-redesign/
+_to_delete/

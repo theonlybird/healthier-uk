@@ -1,229 +1,378 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HealthierUK.org — Creating the conditions for a Healthier UK</title>
-  <meta name="description" content="Healthier UK is a coalition of individuals and organisations from all four countries dedicated to creating the conditions for a healthier UK.">
-  <meta property="og:title" content="HealthierUK.org — Creating the conditions for a Healthier UK">
-  <meta property="og:description" content="Healthier UK is a coalition of individuals and organisations creating the conditions for health across England, Scotland, Wales, and Northern Ireland.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/hero-community.jpeg">
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthier UK — a club for everyone who wants a healthier country</title>
+<meta name="description" content="Healthier UK is an open coalition of people and organisations across England, Scotland, Wales and Northern Ireland, creating the conditions for health in everyday life. Anyone can join.">
+<meta property="og:title" content="Healthier UK — creating the conditions for a healthier UK">
+<meta property="og:description" content="An open coalition of communities, charities, clinicians and individuals across the four nations. Free to join.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/feature-nature.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body id="top">
+<body id="top" class="splash-locked">
 
-  <!-- Header & Navigation -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="site-logo" aria-label="Healthier UK Homepage">
-        <img src="assets/images/logo.png" alt="Healthier UK Logo" width="160" height="52">
-      </a>
-      <nav class="nav-desktop" aria-label="Main Navigation">
-        <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-          <li class="nav-item"><a href="about-us.html" class="nav-link">About us</a></li>
-          <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
-          <li class="nav-item"><a href="news.html" class="nav-link">News</a></li>
-          <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
-          <li class="nav-item"><a href="wales.html" class="nav-link">Wales</a></li>
-          <li class="nav-item"><a href="scotland.html" class="nav-link">Scotland</a></li>
-          <li class="nav-item has-dropdown">
-            <a href="england.html" class="nav-link">England &#9662;</a>
-            <ul class="dropdown-menu">
-              <li><a href="england.html" class="dropdown-link">England Overview</a></li>
-              <li><a href="arms-length-bodies.html" class="dropdown-link">Arms Length Bodies</a></li>
-              <li><a href="parliamentary-launch.html" class="dropdown-link">Parliamentary Launch</a></li>
-              <li class="dropdown-submenu">
-                <a href="combined-authorities.html" class="dropdown-link">Combined Authorities &#9656;</a>
-                <ul class="dropdown-sub-menu">
-                  <li><a href="west-midlands.html" class="dropdown-link">West Midlands</a></li>
-                </ul>
-              </li>
-              <li><a href="neighbourhood-health.html" class="dropdown-link">Neighbourhood Health</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="northern-ireland.html" class="nav-link">Northern Ireland</a></li>
-          <li class="nav-item"><a href="research-portal.html" class="nav-link">Research Portal</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+<!-- ====================== Splash / enter screen ====================== -->
+<div class="splash is-open" id="splash" role="dialog" aria-label="Welcome to Healthier UK" tabindex="-1">
+  <button class="splash-skip" type="button">Skip intro</button>
+  <div class="splash-inner">
+    <div class="splash-stage">
+      <svg viewBox="0 0 640 590" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Healthier UK tree"><path id="hu-grass" d="M112,566 C184,516 254,494 320,494 C386,494 456,516 528,566 C452,534 386,518 320,518 C254,518 188,534 112,566 Z" fill="#6DBE45"/><g id="hu-canopy"><g class="hu-petal" data-i="0"><g transform="translate(235.5,402.9) rotate(-152) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#4A9C33"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="1"><g transform="translate(131.0,200.4) rotate(-77.0) scale(0.97)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#6DBE45"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="2"><g transform="translate(238.3,83.6) rotate(-27.0) scale(0.97)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#5BB0AE"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="3"><g transform="translate(271.4,56.2) rotate(-14.5) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2F8F4E"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="4"><g transform="translate(313.7,64.1) rotate(-2.0) scale(0.97)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#8CCB5E"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="5"><g transform="translate(432.7,86.1) rotate(35.5) scale(0.97)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2E9E9A"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="6"><g transform="translate(492.1,191.4) rotate(73.0) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#6DBE45"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="7"><g transform="translate(422.8,408.5) rotate(148.0) scale(0.97)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2F8F4E"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="8"><g transform="translate(198.2,308.8) rotate(-118) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#5BB0AE"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="9"><g transform="translate(182.1,239.2) rotate(-88) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#4A9C33"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="10"><g transform="translate(198.2,179.2) rotate(-62) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#6DBE45"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="11"><g transform="translate(251.0,124.5) rotate(-30) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#5BB0AE"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="12"><g transform="translate(300.8,107.3) rotate(-8) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2F8F4E"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="13"><g transform="translate(358.0,111.3) rotate(16) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#8CCB5E"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="14"><g transform="translate(412.3,141.4) rotate(42) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2E9E9A"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="15"><g transform="translate(449.7,196.8) rotate(70) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#6DBE45"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="16"><g transform="translate(457.9,248.8) rotate(92) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2F8F4E"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="17"><g transform="translate(441.8,308.8) rotate(118) scale(1.12)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2E9E9A"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="18"><g transform="translate(225.5,260.7) rotate(-100) scale(1.24)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#5BB0AE"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="19"><g transform="translate(285.5,158.7) rotate(-22) scale(1.24)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#4A9C33"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="20"><g transform="translate(351.5,157.5) rotate(20) scale(1.24)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#6DBE45"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="21"><g transform="translate(414.5,260.7) rotate(100) scale(1.24)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#5BB0AE"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="22"><g transform="translate(242.9,335.9) rotate(-140) scale(1.24)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2F8F4E"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="23"><g transform="translate(397.1,335.9) rotate(140) scale(1.24)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#8CCB5E"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="24"><g transform="translate(320.0,124.0) rotate(0) scale(1.24)"><path d="M0,-44 C22,-26 24,16 0,44 C-24,16 -22,-26 0,-44 Z" fill="#2E9E9A"/><path d="M0,-33 C7,-13 7,13 0,33" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/></g></g><g class="hu-petal" data-i="25" data-icon="sun"><g transform="translate(351.5,107.6) rotate(0) scale(1.0)"><circle r="33" fill="#F5A623"/></g></g><g class="hu-petal" data-i="26" data-icon="bird"><g transform="translate(198.6,152.5) rotate(-10) scale(0.88)"><g><path d="M-48,8 C-42,-8 -22,-19 2,-19 C15,-19 26,-15 34,-7 L56,-13 L44,-1 C45,12 36,23 21,28 C2,34 -22,29 -40,19 C-49,14 -50,12 -48,8 Z" fill="#4A8FD4"/><path d="M-4,-16 C8,-36 28,-44 43,-39 C33,-26 20,-13 5,-5 C-3,-1 -8,-8 -4,-16 Z" fill="#7FB4E6"/><circle cx="28" cy="-7" r="3.2" fill="#123E68"/><path d="M40,-5 L58,-9 L41,1 Z" fill="#F5A623"/></g></g></g><g class="hu-petal" data-i="27" data-icon="notes"><g transform="translate(464.2,143.1) rotate(6) scale(0.88)"><g fill="#4A8FD4"><path d="M-8,-42 L32,-52 C37,-53 41,-50 41,-45 L41,-37 C41,-33 38,-30 33,-29 L0,-21 L0,18 C0,29 -8,37 -20,37 C-30,37 -36,31 -36,23 C-36,14 -28,7 -17,7 C-13,7 -10,8 -7,9 Z"/><path d="M41,-25 L41,12 C41,23 33,31 21,31 C12,31 6,25 6,18 C6,9 14,2 25,2 C29,2 32,3 34,4 L34,-23 Z"/></g></g></g><g class="hu-petal" data-i="28" data-icon="heart"><g transform="translate(142.7,259.5) rotate(-6) scale(0.88)"><path d="M0,40 C-30,18 -52,2 -52,-16 C-52,-32 -40,-42 -26,-42 C-14,-42 -5,-35 0,-26 C5,-35 14,-42 26,-42 C40,-42 52,-32 52,-16 C52,2 30,18 0,40 Z" fill="#2E9E9A"/></g></g><g class="hu-petal" data-i="29" data-icon="bowl"><g transform="translate(490.3,267.9) rotate(0) scale(0.84)"><g><circle cx="-15" cy="-16" r="19" fill="#4A9C33"/><circle cx="16" cy="-11" r="15" fill="#F2711C"/><path d="M-17,-38 C-9,-47 4,-46 11,-40 C2,-38 -6,-36 -13,-31 Z" fill="#6DBE45"/><path d="M-44,4 L44,4 C44,27 25,44 0,44 C-25,44 -44,27 -44,4 Z" fill="#2F8F4E"/><rect x="-50" y="-6" width="100" height="11" rx="5.5" fill="#6DBE45"/></g></g></g><g class="hu-petal" data-i="30" data-icon="runner"><g transform="translate(162.4,367.1) rotate(0) scale(0.92)"><g stroke="#2E9E9A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="20" cy="-36" r="11.5" fill="#2E9E9A" stroke="none"/><path d="M13,-17 L-2,4"/><path d="M10,-13 L28,-3"/><path d="M12,-16 L-10,-24"/><path d="M-2,4 L15,15 L18,36"/><path d="M-2,4 L-21,15 L-36,11"/></g></g></g><g class="hu-petal" data-i="31" data-icon="family"><g transform="translate(472.3,367.3) rotate(0) scale(0.8)"><g fill="#4A8FD4"><circle cx="-34" cy="-22" r="13"/><circle cx="34" cy="-22" r="13"/><path d="M-34,-4 C-24,-4 -16,4 -13,16 C-17,28 -27,36 -38,36 C-48,36 -55,27 -53,15 C-51,3 -43,-4 -34,-4 Z"/><path d="M34,-4 C43,-4 51,3 53,15 C55,27 48,36 38,36 C27,36 17,28 13,16 C16,4 24,-4 34,-4 Z"/><circle cx="0" cy="-32" r="15" fill="#3C7FC4"/><path d="M0,-12 C14,-12 25,0 27,18 C29,30 21,38 10,38 L-10,38 C-21,38 -29,30 -27,18 C-25,0 -14,-12 0,-12 Z" fill="#3C7FC4"/></g></g></g></g><g id="hu-figure"><path d="M308,292 C307,332 305,368 301,400 C294,450 276,498 240,528 C230,536 237,548 249,542 C286,524 312,506 320,492 C328,506 354,524 391,542 C403,548 410,536 400,528 C364,498 346,450 339,400 C335,368 333,332 332,292 Z" fill="#16514E"/><path d="M310,292 C296,254 272,214 244,182" stroke="#16514E" stroke-width="18" stroke-linecap="round" fill="none"/><path d="M330,292 C346,250 376,208 410,178" stroke="#16514E" stroke-width="18" stroke-linecap="round" fill="none"/><circle cx="320" cy="250" r="28" fill="#16514E"/></g></svg>
     </div>
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav-drawer">
-      <ul class="mobile-nav-list">
-        <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link active">Home</a></li>
-        <li class="mobile-nav-item"><a href="about-us.html" class="mobile-nav-link">About us</a></li>
-        <li class="mobile-nav-item"><a href="team.html" class="mobile-nav-link">Team</a></li>
-        <li class="mobile-nav-item"><a href="news.html" class="mobile-nav-link">News</a></li>
-        <li class="mobile-nav-item"><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
-        <li class="mobile-nav-item"><a href="wales.html" class="mobile-nav-link">Wales</a></li>
-        <li class="mobile-nav-item"><a href="scotland.html" class="mobile-nav-link">Scotland</a></li>
-        <li class="mobile-nav-item">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <a href="england.html" class="mobile-nav-link" style="flex-grow:1;">England</a>
-            <button class="mobile-submenu-toggle" aria-label="Toggle England submenu">+</button>
-          </div>
-          <ul class="mobile-submenu">
-            <li class="mobile-submenu-item"><a href="england.html" class="mobile-submenu-link">England Overview</a></li>
-            <li class="mobile-submenu-item"><a href="arms-length-bodies.html" class="mobile-submenu-link">Arms Length Bodies</a></li>
-            <li class="mobile-submenu-item"><a href="parliamentary-launch.html" class="mobile-submenu-link">Parliamentary Launch</a></li>
-            <li class="mobile-submenu-item"><a href="combined-authorities.html" class="mobile-submenu-link">Combined Authorities</a></li>
-            <li class="mobile-submenu-item"><a href="west-midlands.html" class="mobile-submenu-link">&mdash; West Midlands</a></li>
-            <li class="mobile-submenu-item"><a href="neighbourhood-health.html" class="mobile-submenu-link">Neighbourhood Health</a></li>
-          </ul>
-        </li>
-        <li class="mobile-nav-item"><a href="northern-ireland.html" class="mobile-nav-link">Northern Ireland</a></li>
-        <li class="mobile-nav-item"><a href="research-portal.html" class="mobile-nav-link">Research Portal</a></li>
-        <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-      </ul>
-    </div>
-  </header>
+    <p class="splash-word">Healthier <span>UK</span></p>
+    <p class="splash-tag">A club for everyone who wants to help build a healthier country.</p>
+    <button class="splash-enter" type="button">Come on in <span class="arrow" aria-hidden="true">&rarr;</span></button>
+  </div>
+</div>
 
-  <!-- Hero Section -->
+<div class="page-shell">
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container header-inner"><a href="index.html" class="site-logo" aria-label="Healthier UK — home"><img src="assets/images/logo-tree.svg" alt="" width="60" height="55" aria-hidden="true"><span class="brand-word">Healthier <span>UK</span></span></a><nav class="nav-desktop" aria-label="Main navigation"><ul class="nav-menu"><li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li><li class="nav-item has-dropdown"><a href="about-us.html" class="nav-link">About <span aria-hidden="true">&#9662;</span></a><ul class="dropdown-menu"><li><a href="about-us.html" class="dropdown-link">Who we are</a></li><li><a href="team.html" class="dropdown-link">Our team</a></li></ul></li><li class="nav-item has-dropdown"><a href="england.html" class="nav-link">Four nations <span aria-hidden="true">&#9662;</span></a><ul class="dropdown-menu"><li><a href="england.html" class="dropdown-link">England</a></li><li><a href="arms-length-bodies.html" class="dropdown-link dropdown-sub">Arms Length Bodies</a></li><li><a href="parliamentary-launch.html" class="dropdown-link dropdown-sub">Parliamentary Launch</a></li><li><a href="combined-authorities.html" class="dropdown-link dropdown-sub">Combined Authorities</a></li><li><a href="west-midlands.html" class="dropdown-link dropdown-sub">West Midlands</a></li><li><a href="neighbourhood-health.html" class="dropdown-link dropdown-sub">Neighbourhood Health</a></li><li><a href="wales.html" class="dropdown-link">Wales</a></li><li><a href="scotland.html" class="dropdown-link">Scotland</a></li><li><a href="northern-ireland.html" class="dropdown-link">Northern Ireland</a></li></ul></li><li class="nav-item has-dropdown"><a href="news.html" class="nav-link">News & blogs <span aria-hidden="true">&#9662;</span></a><ul class="dropdown-menu"><li><a href="news.html" class="dropdown-link">News & events</a></li><li><a href="blogs.html" class="dropdown-link">Blogs</a></li></ul></li><li class="nav-item"><a href="research-portal.html" class="nav-link">Research</a></li><li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li><li class="nav-item nav-cta"><a href="contact.html" class="btn btn-accent btn-sm">Join us</a></li></ul></nav><button class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button></div><div class="mobile-nav-drawer"><ul class="mobile-nav-list"><li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link active">Home</a></li><li class="mobile-nav-item"><div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;"><a href="about-us.html" class="mobile-nav-link" style="flex:1;">About</a><button class="mobile-submenu-toggle" aria-expanded="false" aria-label="Show About pages">+</button></div><ul class="mobile-submenu"><li class="mobile-submenu-item"><a href="about-us.html" class="mobile-submenu-link">Who we are</a></li><li class="mobile-submenu-item"><a href="team.html" class="mobile-submenu-link">Our team</a></li></ul></li><li class="mobile-nav-item"><div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;"><a href="england.html" class="mobile-nav-link" style="flex:1;">Four nations</a><button class="mobile-submenu-toggle" aria-expanded="false" aria-label="Show Four nations pages">+</button></div><ul class="mobile-submenu"><li class="mobile-submenu-item"><a href="england.html" class="mobile-submenu-link">England</a></li><li class="mobile-submenu-item"><a href="arms-length-bodies.html" class="mobile-submenu-link" style="padding-left:2.1rem;">Arms Length Bodies</a></li><li class="mobile-submenu-item"><a href="parliamentary-launch.html" class="mobile-submenu-link" style="padding-left:2.1rem;">Parliamentary Launch</a></li><li class="mobile-submenu-item"><a href="combined-authorities.html" class="mobile-submenu-link" style="padding-left:2.1rem;">Combined Authorities</a></li><li class="mobile-submenu-item"><a href="west-midlands.html" class="mobile-submenu-link" style="padding-left:2.1rem;">West Midlands</a></li><li class="mobile-submenu-item"><a href="neighbourhood-health.html" class="mobile-submenu-link" style="padding-left:2.1rem;">Neighbourhood Health</a></li><li class="mobile-submenu-item"><a href="wales.html" class="mobile-submenu-link">Wales</a></li><li class="mobile-submenu-item"><a href="scotland.html" class="mobile-submenu-link">Scotland</a></li><li class="mobile-submenu-item"><a href="northern-ireland.html" class="mobile-submenu-link">Northern Ireland</a></li></ul></li><li class="mobile-nav-item"><div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;"><a href="news.html" class="mobile-nav-link" style="flex:1;">News & blogs</a><button class="mobile-submenu-toggle" aria-expanded="false" aria-label="Show News & blogs pages">+</button></div><ul class="mobile-submenu"><li class="mobile-submenu-item"><a href="news.html" class="mobile-submenu-link">News & events</a></li><li class="mobile-submenu-item"><a href="blogs.html" class="mobile-submenu-link">Blogs</a></li></ul></li><li class="mobile-nav-item"><a href="research-portal.html" class="mobile-nav-link">Research</a></li><li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li><li class="mobile-nav-item" style="border:0;padding-top:1.25rem;"><a href="contact.html" class="btn btn-accent" style="width:100%;">Join us</a></li></ul></div></header>
+
+<main id="main">
+
+  <!-- ============================== Hero ============================== -->
   <section class="hero">
+    <span class="hero-blob hero-blob-1" aria-hidden="true"></span>
+    <span class="hero-blob hero-blob-2" aria-hidden="true"></span>
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-content">
-          <h1>Creating the conditions for a Healthier UK</h1>
+        <div class="hero-content reveal">
+          <span class="eyebrow">Open to everyone</span>
+          <h1>Creating the conditions for a <span class="highlight-word">healthier UK</span></h1>
           <p class="italic-lead">
-            Healthier UK is a coalition of individuals and organisations from all four countries initiated by College of Medicine and British Society of Lifestyle Medicine but owned by everyone who wants to create the conditions for a healthier UK.
+            Health isn't made in hospitals. It's made in the streets we live on, the work we do,
+            the people we know and the green space at the end of the road. Healthier UK brings
+            together everyone working to make those conditions better — across all four nations.
           </p>
-          <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
-            <a href="about-us.html" class="btn btn-primary">About Us</a>
-            <a href="contact.html" class="btn btn-outline">Join the Coalition</a>
+          <div class="btn-group" style="margin-top:2rem;">
+            <a href="contact.html" class="btn btn-primary btn-lg">Join the coalition</a>
+            <a href="about-us.html" class="btn btn-outline btn-lg">What we stand for</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-num">Four</div>
+              <div class="hero-stat-label">nations, one shared mission</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">Free</div>
+              <div class="hero-stat-label">to join, whoever you are</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">Yours</div>
+              <div class="hero-stat-label">owned by everyone in it</div>
+            </div>
           </div>
         </div>
-        <div class="hero-image-wrap">
-          <img src="assets/images/hero-community.jpeg" alt="Community members enjoying healthy outdoor activity" width="800" height="500">
+
+        <div class="hero-media reveal reveal-d1" style="position:relative;">
+          <div class="hero-image-wrap">
+            <img src="assets/images/feature-nature.jpeg" alt="Two women of different generations laughing together on a walk outdoors" width="900" height="675">
+          </div>
+          <svg class="float-leaf" style="top:-30px; left:-26px; width:62px;" viewBox="0 0 88 88" aria-hidden="true">
+            <path d="M44,4 C66,22 68,64 44,84 C20,64 22,22 44,4 Z" fill="#6DBE45"/>
+          </svg>
+          <svg class="float-leaf float-leaf-2" style="bottom:-26px; left:6%; width:48px;" viewBox="0 0 88 88" aria-hidden="true">
+            <path d="M44,4 C66,22 68,64 44,84 C20,64 22,22 44,4 Z" fill="#2E9E9A"/>
+          </svg>
+          <svg class="float-leaf float-leaf-3" style="top:34%; right:-30px; width:54px;" viewBox="0 0 88 88" aria-hidden="true">
+            <path d="M44,4 C66,22 68,64 44,84 C20,64 22,22 44,4 Z" fill="#F5A623"/>
+          </svg>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Key Pillars Section -->
-  <section class="section section-alt">
+  <!-- =========================== Marquee ============================== -->
+  <section class="section-sm section-white" style="padding-top:2rem; padding-bottom:2rem;">
     <div class="container">
-      <div class="grid-3">
-        <!-- The Shift -->
-        <div class="card-pillar">
-          <h3>The Shift</h3>
-          <p>
-            Health is not made in hospitals. It is made in everyday life: in secure housing and good work, strong relationships and safe neighbourhoods, access to nature and activity, and a good start in childhood. These are the primary drivers of health that keep a population well, productive and resilient.
-          </p>
-        </div>
-        <!-- The Asset -->
-        <div class="card-pillar">
-          <h3>The Asset</h3>
-          <p>
-            Health stops being a cost to be managed and becomes an asset to be grown. The core role of the Health Departments should be to catalyse a shared national mission, not to remain the sole owner of a failing system.
-          </p>
-        </div>
-        <!-- The Prize -->
-        <div class="card-pillar">
-          <h3>The Prize</h3>
-          <p>
-            A healthier workforce and a stronger economy; lower long-term pressure on the NHS and the public finances; communities more resilient to the pandemics, extreme heat and floods this decade will bring &mdash; and a clear, distinctive health mission that is unmistakably the government's own. <strong>A healthy nation is a stronger nation.</strong>
-          </p>
-        </div>
+      <p class="marquee-label">The everyday things that make us healthy</p>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><span class="dot"></span>A good start in childhood</span>
+        <span class="marquee-item"><span class="dot"></span>Warm, secure homes</span>
+        <span class="marquee-item"><span class="dot"></span>Work worth doing</span>
+        <span class="marquee-item"><span class="dot"></span>Friends and neighbours</span>
+        <span class="marquee-item"><span class="dot"></span>Green space nearby</span>
+        <span class="marquee-item"><span class="dot"></span>Streets safe enough to walk</span>
+        <span class="marquee-item"><span class="dot"></span>Moving every day</span>
+        <span class="marquee-item"><span class="dot"></span>Good food within reach</span>
+        <span class="marquee-item"><span class="dot"></span>Belonging somewhere</span>
+        <span class="marquee-item"><span class="dot"></span>A reason to get up</span>
       </div>
+    </div>
+    <div class="container">
+      <p class="text-center" style="font-size:.9rem; color:var(--hu-text-soft); margin-top:1.25rem;">
+        Initiated by the <strong>College of Medicine</strong> and the
+        <strong>British Society of Lifestyle Medicine</strong> — and owned by everyone who joins.
+      </p>
     </div>
   </section>
 
-  <!-- Transforming UK Health Policy -->
-  <section class="section">
+  <!-- ======================== Who it's for ============================ -->
+  <section class="section section-alt section-layer">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2>Transforming UK Health Policy</h2>
-        <p class="lead" style="max-width: 800px; margin: 0 auto;">
-          Britain has built a world-class service for treating illness. It has never built one for creating health. Doing so is the defining opportunity of this term &mdash; and it lowers long-term costs rather than adding to them.
+      <div class="section-intro reveal">
+        <span class="eyebrow">Who's it for?</span>
+        <h2>You don't need permission to join</h2>
+        <p class="lead">
+          Healthier UK isn't a members' club for experts. It's for anyone who can help create
+          health where they are — and that turns out to be almost everyone.
         </p>
       </div>
 
-      <div class="grid-2" style="align-items: center; margin-bottom: 4rem;">
-        <div>
-          <div class="card" style="border-left: 4px solid var(--color-primary-dark); background-color: var(--color-bg-alt);">
-            <h3 style="margin-bottom: 0.75rem;">The Inheritance</h3>
+      <div class="grid-4" style="gap:1.25rem;">
+        <div class="join-card reveal">
+          <div class="join-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2F8F4E" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/>
+            </svg>
+          </div>
+          <h3>Community leaders</h3>
+          <p>You already know your neighbourhood better than any spreadsheet does. Bring what
+            works, take back what others have learned.</p>
+        </div>
+
+        <div class="join-card reveal reveal-d1">
+          <div class="join-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2E9E9A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.4"/>
+              <path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/>
+              <path d="M15.5 20c0-2.6 1.3-4.4 3.2-4.4 1.2 0 2.3.8 2.8 2.1"/>
+            </svg>
+          </div>
+          <h3>Charities &amp; VCSE</h3>
+          <p>Add your voice to a coalition arguing for the shift from treating illness to
+            creating health — and for the funding to follow it.</p>
+        </div>
+
+        <div class="join-card reveal reveal-d2">
+          <div class="join-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2A6BAA" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/>
+              <path d="M10 21v-5h4v5"/><path d="M9 11h.01M15 11h.01"/>
+            </svg>
+          </div>
+          <h3>Councils, mayors &amp; NHS teams</h3>
+          <p>Places are already proving this works. Connect with the people doing it and help
+            make it the operating model, not a pilot.</p>
+        </div>
+
+        <div class="join-card reveal reveal-d3">
+          <div class="join-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#A96B06" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="7.5" r="3.4"/>
+              <path d="M4.5 20.5c0-4.1 3.4-7 7.5-7s7.5 2.9 7.5 7"/>
+            </svg>
+          </div>
+          <h3>Individuals</h3>
+          <p>Curious, frustrated, hopeful, or all three. You don't need a title or an
+            organisation behind you to belong here.</p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:2.75rem;">
+        <a href="contact.html" class="btn btn-accent btn-lg">Add your name</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== Three pillars ========================= -->
+  <section class="section section-white section-layer">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="eyebrow">What we believe</span>
+        <h2>Three ideas we keep coming back to</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card-pillar reveal">
+          <span class="badge">The shift</span>
+          <h3 style="margin-top:.85rem;">Health is not made in hospitals</h3>
+          <p>
+            It is made in everyday life: in secure housing and good work, strong relationships and
+            safe neighbourhoods, access to nature and activity, and a good start in childhood.
+            These are the primary drivers that keep a population well, productive and resilient.
+          </p>
+        </div>
+        <div class="card-pillar reveal reveal-d1">
+          <span class="badge badge-blue">The asset</span>
+          <h3 style="margin-top:.85rem;">Health is something we grow</h3>
+          <p>
+            Health stops being a cost to be managed and becomes an asset to be grown. The core
+            role of the health departments should be to catalyse a shared national mission — not
+            to remain the sole owner of a failing system.
+          </p>
+        </div>
+        <div class="card-pillar reveal reveal-d2">
+          <span class="badge badge-sun">The prize</span>
+          <h3 style="margin-top:.85rem;">A healthy nation is a stronger nation</h3>
+          <p>
+            A healthier workforce and a stronger economy; lower long-term pressure on the NHS and
+            the public finances; communities more resilient to the pandemics, extreme heat and
+            floods this decade will bring — and a clear, distinctive health mission.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Transforming policy ======================= -->
+  <section class="section section-alt section-layer">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="eyebrow">The opportunity</span>
+        <h2>Transforming UK health policy</h2>
+        <p class="lead">
+          Britain has built a world-class service for treating illness. It has never built one for
+          creating health. Doing so is the defining opportunity of this term — and it lowers
+          long-term costs rather than adding to them.
+        </p>
+      </div>
+
+      <div class="grid-2" style="align-items:start;">
+        <div class="reveal">
+          <div class="highlight-box" style="margin-top:0;">
+            <h3>The inheritance</h3>
             <p>
-              Demand and spending keep rising while the nation's health falters. The move towards neighbourhood health is the right instinct &mdash; but it must amount to more than relocating top-down services. The opportunity now is to give it real purpose: health creation, led by places and communities.
+              Demand and spending keep rising while the nation's health falters. The move towards
+              neighbourhood health is the right instinct — but it must amount to more than
+              relocating top-down services. The opportunity now is to give it real purpose:
+              health creation, led by places and communities.
             </p>
           </div>
-          <div style="margin-top: 2rem;">
-            <img src="assets/images/feature-cycling.jpeg" alt="Healthy active lifestyle" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-          </div>
+          <img src="assets/images/feature-cycling.jpeg" alt="People cycling together on a quiet street" class="rounded-img tilt-a" style="margin-top:2rem;" loading="lazy">
         </div>
-        <div>
-          <!-- Policy recommendations -->
+
+        <div class="reveal reveal-d1">
           <div class="policy-step">
             <div class="policy-step-number">1</div>
             <div class="policy-step-body">
               <h4>Set the mission</h4>
-              <p>A cross-government health-creation strategy &mdash; owned well beyond DHSC &mdash; framed around raising economic participation, cutting the costs of health failure, and strengthening national resilience.</p>
+              <p>A cross-government health-creation strategy — owned well beyond DHSC — framed
+                around raising economic participation, cutting the costs of health failure, and
+                strengthening national resilience.</p>
             </div>
           </div>
-
           <div class="policy-step">
             <div class="policy-step-number">2</div>
             <div class="policy-step-body">
               <h4>Back the places already proving it</h4>
-              <p>Deepen and extend the mayor-led Prevention Demonstrators and support community-led health creation activity so devolved, place-based prevention and health creation becomes the operating model, not a pilot.</p>
+              <p>Deepen and extend the mayor-led Prevention Demonstrators and support
+                community-led health creation, so devolved, place-based prevention becomes the
+                operating model rather than a pilot.</p>
             </div>
           </div>
-
           <div class="policy-step">
             <div class="policy-step-number">3</div>
             <div class="policy-step-body">
               <h4>Shift the money</h4>
-              <p>Progressively rebalance resources from acute care to support communities leading improvements in their own communities' health as well as prevention through NHS planning and the spending review, and weigh avoided future cost in decisions &mdash; invest to save, not spend to fail.</p>
+              <p>Progressively rebalance resources from acute care towards communities leading
+                improvements in their own health, and weigh avoided future cost in decisions —
+                invest to save, not spend to fail.</p>
             </div>
           </div>
-
           <div class="policy-step">
             <div class="policy-step-number">4</div>
             <div class="policy-step-body">
               <h4>Define what good looks like</h4>
-              <p>Minimum standards for health creation, with relational capacity and shared community delivery built in, and digital tools that strengthen human connection rather than replace it.</p>
+              <p>Minimum standards for health creation, with relational capacity and shared
+                community delivery built in, and digital tools that strengthen human connection
+                rather than replace it.</p>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Feature grid illustrations -->
-      <div class="grid-4">
-        <div>
-          <img src="assets/images/feature-runner.jpeg" alt="Physical health and activity" style="border-radius:var(--radius-md); box-shadow:var(--shadow-sm); aspect-ratio:3/2; object-fit:cover;">
-        </div>
-        <div>
-          <img src="assets/images/feature-nature.jpeg" alt="Access to green spaces and nature" style="border-radius:var(--radius-md); box-shadow:var(--shadow-sm); aspect-ratio:3/2; object-fit:cover;">
-        </div>
-        <div>
-          <img src="assets/images/feature-family.jpeg" alt="Supportive family and childhood start" style="border-radius:var(--radius-md); box-shadow:var(--shadow-sm); aspect-ratio:3/2; object-fit:cover;">
-        </div>
-        <div>
-          <img src="assets/images/feature-group.jpeg" alt="Community connection and social cohesion" style="border-radius:var(--radius-md); box-shadow:var(--shadow-sm); aspect-ratio:3/2; object-fit:cover;">
+          <a href="research-portal.html" class="btn btn-outline" style="margin-top:.75rem;">See the evidence</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter Section -->
-  <section class="section" style="padding-top: 0;">
+  <!-- ============================ Quote ============================== -->
+  <section class="section section-white section-layer">
     <div class="container">
-      <div class="newsletter-box">
-        <div class="grid-2" style="align-items: center;">
+      <div class="quote-card reveal">
+        <p class="quote">“Health stops being a cost to be managed and becomes an asset to be grown.
+          A healthy nation is a stronger nation.”</p>
+        <p class="quote-attrib">— The Healthier UK coalition</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= Four nations ========================== -->
+  <section class="section section-alt section-layer">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="eyebrow">Across the UK</span>
+        <h2>Four nations, one coalition</h2>
+        <p class="lead">Different systems, different politics, the same idea. Find what's
+          happening where you are.</p>
+      </div>
+      <div class="grid-4" style="gap:1.25rem;">
+        <a href="england.html" class="join-card reveal" style="display:block;">
+          <div class="join-icon"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:26px;height:26px;"><path d="M12 2.4c5.2 4 5.7 14.4 0 19.2C6.3 16.8 6.8 6.4 12 2.4Z" fill="#4A9C33"/><path d="M12 5.6v13" stroke="#fff" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <h3>England</h3>
+          <p>Arms length bodies, the parliamentary launch, combined authorities and
+            neighbourhood health.</p>
+        </a>
+        <a href="wales.html" class="join-card reveal reveal-d1" style="display:block;">
+          <div class="join-icon"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:26px;height:26px;"><path d="M12 2.4c5.2 4 5.7 14.4 0 19.2C6.3 16.8 6.8 6.4 12 2.4Z" fill="#2E9E9A"/><path d="M12 5.6v13" stroke="#fff" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <h3>Wales</h3>
+          <p>Community capacity, reflections and the well-being of future generations in
+            practice.</p>
+        </a>
+        <a href="scotland.html" class="join-card reveal reveal-d2" style="display:block;">
+          <div class="join-icon"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:26px;height:26px;"><path d="M12 2.4c5.2 4 5.7 14.4 0 19.2C6.3 16.8 6.8 6.4 12 2.4Z" fill="#4A8FD4"/><path d="M12 5.6v13" stroke="#fff" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <h3>Scotland</h3>
+          <p>How health creation is taking shape north of the border, and who is leading it.</p>
+        </a>
+        <a href="northern-ireland.html" class="join-card reveal reveal-d3" style="display:block;">
+          <div class="join-icon"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:26px;height:26px;"><path d="M12 2.4c5.2 4 5.7 14.4 0 19.2C6.3 16.8 6.8 6.4 12 2.4Z" fill="#F5A623"/><path d="M12 5.6v13" stroke="#fff" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <h3>Northern Ireland</h3>
+          <p>Building the coalition and connecting communities across Northern Ireland.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Gallery ============================ -->
+  <section class="section section-white section-layer">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="eyebrow">In action</span>
+        <h2>What a healthier UK looks like</h2>
+        <p class="lead">Everyday moments of connection, movement, nature and community — the
+          things that actually create health.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item"><img src="assets/images/gallery-5.jpeg" alt="Older people dancing together at a community club" loading="lazy"></div>
+        <div class="gallery-item"><img src="assets/images/gallery-3.jpeg" alt="Friends sharing a table of good food" loading="lazy"></div>
+        <div class="gallery-item"><img src="assets/images/gallery-7.jpeg" alt="A couple out walking on the coast" loading="lazy"></div>
+        <div class="gallery-item"><img src="assets/images/gallery-8.jpeg" alt="A parent and children dancing at home" loading="lazy"></div>
+        <div class="gallery-item"><img src="assets/images/gallery-4.jpeg" alt="A community art group showing their work" loading="lazy"></div>
+        <div class="gallery-item"><img src="assets/images/gallery-2.jpeg" alt="A couple walking through their neighbourhood" loading="lazy"></div>
+        <div class="gallery-item"><img src="assets/images/gallery-1.jpeg" alt="A community football ground" loading="lazy"></div>
+        <div class="gallery-item"><img src="assets/images/gallery-6.jpeg" alt="A hilltop castle above open countryside" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== Newsletter =========================== -->
+  <section class="section section-alt section-layer">
+    <div class="container">
+      <div class="newsletter-box reveal">
+        <div class="grid-2" style="align-items:center;">
           <div>
-            <h2>Be the first to read what's new!</h2>
-            <p>Subscribe to our updates for insights on health creation policy, cross-nation case studies, and upcoming events.</p>
+            <h2>Be the first to know</h2>
+            <p>Occasional updates on health creation policy, case studies from the four nations,
+              and events you can turn up to. No noise.</p>
           </div>
           <div>
             <form class="newsletter-form" data-ajax="true">
-              <input type="email" class="form-control" placeholder="Enter your email address" required>
+              <label class="form-label" for="nl-email" style="color:#fff; width:100%;">Your email address</label>
+              <input type="email" id="nl-email" class="form-control" placeholder="you@example.co.uk" required>
               <button type="submit" class="btn btn-accent">Subscribe</button>
             </form>
           </div>
@@ -232,71 +381,40 @@
     </div>
   </section>
 
-  <!-- Photo Gallery -->
-  <section class="section section-alt">
+  <!-- ============================= Contact =========================== -->
+  <section class="section section-white section-layer section-layer-end">
     <div class="container">
-      <div class="text-center mb-4">
-        <h2>A Healthier UK in Action</h2>
-        <p class="lead">Everyday moments of connection, movement, nature, and community that create genuine health.</p>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="assets/images/gallery-1.jpeg" alt="Active community" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/gallery-2.jpeg" alt="Healthy lifestyle" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/gallery-3.jpeg" alt="Connecting in nature" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/gallery-4.jpeg" alt="Children and outdoors" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/gallery-5.jpeg" alt="Community support" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/gallery-6.jpeg" alt="Active aging" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/gallery-7.jpeg" alt="Neighbourhood gathering" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/gallery-8.jpeg" alt="Walking together" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick Contact Section -->
-  <section class="section">
-    <div class="container">
-      <div class="grid-2" style="align-items: center;">
-        <div>
-          <h2>Do You Need to Contact Us?</h2>
-          <p class="lead">We'd love to hear from you. Whether you're interested in collaborating, sharing research, supporting our campaigns, or learning more about our work across the UK.</p>
-          <div style="margin-top: 1.5rem;">
-            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
-            <a href="about-us.html" class="btn btn-outline" style="margin-left: 0.5rem;">Learn More</a>
+      <div class="grid-2" style="align-items:center;">
+        <div class="reveal">
+          <span class="eyebrow">Say hello</span>
+          <h2>Come and talk to us</h2>
+          <p class="lead">
+            Whether you want to collaborate, share research, bring your community in, or just
+            find out what this is about — we'd like to hear from you. There's no wrong way to
+            get involved.
+          </p>
+          <div class="btn-group" style="margin-top:1.5rem;">
+            <a href="contact.html" class="btn btn-primary">Get in touch</a>
+            <a href="about-us.html" class="btn btn-outline">Learn more</a>
           </div>
         </div>
-        <div>
+        <div class="reveal reveal-d1">
           <div class="form-card">
-            <h3 style="margin-bottom: 1.25rem;">Send a Quick Message</h3>
+            <h3 style="margin-bottom:1.25rem;">Send a quick message</h3>
             <form class="contact-form" data-ajax="true">
               <div class="form-group">
-                <label class="form-label" for="home-name">Your Name</label>
+                <label class="form-label" for="home-name">Your name</label>
                 <input type="text" id="home-name" class="form-control" placeholder="Jane Doe" required>
               </div>
               <div class="form-group">
-                <label class="form-label" for="home-email">Email Address</label>
+                <label class="form-label" for="home-email">Email address</label>
                 <input type="email" id="home-email" class="form-control" placeholder="jane@example.co.uk" required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="home-message">Message</label>
-                <textarea id="home-message" class="form-control" rows="3" placeholder="How would you like to collaborate?" required></textarea>
+                <textarea id="home-message" class="form-control" rows="3" placeholder="How would you like to get involved?" required></textarea>
               </div>
-              <button type="submit" class="btn btn-accent" style="width: 100%;">Submit Message</button>
+              <button type="submit" class="btn btn-accent" style="width:100%;">Send message</button>
             </form>
           </div>
         </div>
@@ -304,53 +422,11 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col footer-brand">
-          <img src="assets/images/logo.png" alt="Healthier UK" style="height:48px; filter:brightness(0) invert(1); width:auto;">
-          <p>Creating the conditions for a healthier UK through place-based health creation, community empowerment, and cross-government policy reform.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="team.html">Our Team</a></li>
-            <li><a href="news.html">News &amp; Events</a></li>
-            <li><a href="blogs.html">Blogs</a></li>
-            <li><a href="research-portal.html">Research Portal</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Four Nations</h4>
-          <ul class="footer-links">
-            <li><a href="england.html">England</a></li>
-            <li><a href="wales.html">Wales</a></li>
-            <li><a href="scotland.html">Scotland</a></li>
-            <li><a href="northern-ireland.html">Northern Ireland</a></li>
-            <li><a href="combined-authorities.html">Combined Authorities</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact &amp; Connect</h4>
-          <ul class="footer-links">
-            <li><a href="contact.html">Get in Touch</a></li>
-            <li><a href="mailto:william.bird@intelligenthealth.co.uk">william.bird@intelligenthealth.co.uk</a></li>
-          </ul>
-          <div style="margin-top:1.5rem;">
-            <a href="contact.html" class="btn btn-accent btn-sm">Contact Coalition</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Healthier UK. Initiated by College of Medicine &amp; British Society of Lifestyle Medicine.</p>
-        <p><a href="#top" style="color:#94a3b8;">Back to top &uarr;</a></p>
-      </div>
-    </div>
-  </footer>
+</main>
 
-  <script src="assets/js/main.js"></script>
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col footer-brand"><div class="footer-brand-lockup"><img src="assets/images/logo-tree-light.svg" alt="" width="60" height="55" aria-hidden="true"><span class="brand-word">Healthier <span>UK</span></span></div><p>A coalition of people and organisations across the four nations, creating the conditions for health in everyday life. Open to everyone.</p></div><div class="footer-col"><h4>Explore</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about-us.html">About us</a></li><li><a href="team.html">Our team</a></li><li><a href="news.html">News &amp; events</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="research-portal.html">Research portal</a></li></ul></div><div class="footer-col"><h4>Four nations</h4><ul class="footer-links"><li><a href="england.html">England</a></li><li><a href="wales.html">Wales</a></li><li><a href="scotland.html">Scotland</a></li><li><a href="northern-ireland.html">Northern Ireland</a></li><li><a href="combined-authorities.html">Combined authorities</a></li><li><a href="neighbourhood-health.html">Neighbourhood health</a></li></ul></div><div class="footer-col"><h4>Join in</h4><ul class="footer-links"><li><a href="contact.html">Get in touch</a></li><li><a href="mailto:william.bird@intelligenthealth.co.uk">Email the coalition</a></li></ul><div style="margin-top:1.35rem;"><a href="contact.html" class="btn btn-primary btn-sm">Join the club</a></div></div></div><div class="footer-bottom"><p>&copy; 2026 Healthier UK. Initiated by the College of Medicine &amp; the British Society of Lifestyle Medicine.</p><p><a href="#top">Back to top &uarr;</a></p></div></div></footer>
+</div><!-- /.page-shell -->
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
