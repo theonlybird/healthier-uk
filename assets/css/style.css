@@ -10,7 +10,7 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Brand — sampled from the Healthier UK tree */
-  --hu-ink:          #16514E;   /* trunk / figure teal  */
+  --hu-ink:          #234E4D;   /* trunk / figure teal  */
   --hu-ink-deep:     #0E3B39;
   --hu-green:        #4A9C33;
   --hu-green-bright: #6DBE45;
@@ -305,6 +305,8 @@ blockquote {
 
 .site-logo { display: inline-flex; align-items: center; gap: .7rem; flex-shrink: 0; }
 .site-logo img, .site-logo svg { height: 52px; width: auto; }
+.site-logo .brand-lockup { height: 52px; }
+@media (max-width: 560px) { .site-logo .brand-lockup { height: 42px; } }
 .site-logo:hover .brand-word { color: var(--hu-ink); }
 
 .brand-word {
@@ -469,7 +471,7 @@ body.splash-locked { overflow: hidden; }
 }
 
 .splash-stage {
-  width: min(72vw, 430px);
+  width: min(76vw, 400px);
   margin: 0 auto;
   position: relative;
 }
@@ -538,7 +540,7 @@ body.splash-locked { overflow: hidden; }
   to   { opacity: 1; transform: scale(1) rotate(0); }
 }
 
-.splash #hu-figure, .splash #hu-grass {
+.splash #hu-figure, .splash #hu-grass, .splash #hu-word {
   opacity: 0;
   animation: fig-in .8s var(--ease) .15s forwards;
   transform-box: fill-box;
@@ -560,12 +562,14 @@ body.splash-locked { overflow: hidden; }
 .splash.is-scattering .hu-petal.gone { opacity: 0; }
 
 .splash.is-scattering #hu-figure,
+.splash.is-scattering #hu-word,
 .splash.is-scattering #hu-grass {
   animation: none;
   opacity: 1;
   transition: transform 1.2s var(--ease) .55s, opacity 1s ease-in .7s;
 }
 .splash.is-scattering.is-lifting #hu-figure,
+.splash.is-scattering.is-lifting #hu-word,
 .splash.is-scattering.is-lifting #hu-grass { opacity: 0; transform: translateY(26px) scale(.94); }
 
 .splash.is-scattering .splash-word,
@@ -587,7 +591,7 @@ body.revealing .page-shell { animation: page-rise 1s var(--ease) forwards; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .splash .hu-petal, .splash #hu-figure, .splash #hu-grass { animation: none; opacity: 1; }
+  .splash .hu-petal, .splash #hu-figure, .splash #hu-grass, .splash #hu-word { animation: none; opacity: 1; }
   .splash.is-scattering .hu-petal { transition: opacity .4s ease; transform: none !important; }
   * { animation-duration: .01ms !important; transition-duration: .12s !important; }
 }
@@ -1158,6 +1162,7 @@ textarea.form-control { resize: vertical; min-height: 120px; line-height: 1.6; }
 
 .footer-brand-lockup { display: inline-flex; align-items: center; gap: .65rem; margin-bottom: 1rem; }
 .footer-brand-lockup img { height: 54px; width: auto; }
+.footer-brand-lockup .brand-lockup { height: 54px; }
 .footer-brand-lockup .brand-word { color: #fff; font-size: 1.3rem; }
 .footer-brand-lockup .brand-word span { color: var(--hu-green-light); }
 .footer-brand p { font-size: .94rem; color: rgba(255,255,255,.7); max-width: 34ch; }
