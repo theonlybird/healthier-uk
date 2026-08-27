@@ -1,0 +1,9 @@
+<a href="blog-{{ p.fileSlug }}.html" class="post-card" data-search="{{ p.data.title }} {{ p.data.summary }} {{ (team | member(p.data.author)).name }} {{ (team | member(p.data.author)).org }}">
+          <div class="post-card-image"><img src="assets/images/{{ p.data.cardImage or p.data.image }}" alt="{{ p.data.cardImageAlt or p.data.title }}" style="object-position: top;" loading="lazy"></div>
+          <div class="post-card-body">
+            <span class="post-date">{{ p.data.date | ukdate }}{% if withAuthor %} &bull; {{ (team | member(p.data.author)).name }}{% endif %}</span>
+            <h3 class="post-title">{{ p.data.title }}</h3>
+            <p class="post-excerpt">{{ p.data.summary | safe }}</p>
+            <span class="post-readmore">Read article &rarr;</span>
+          </div>
+        </a>

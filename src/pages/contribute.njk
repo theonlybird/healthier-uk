@@ -1,0 +1,146 @@
+---
+layout: "layouts/base.njk"
+title: "Write for Healthier UK"
+description: "Submit a blog to Healthier UK. Your post goes to the editorial team for review before it appears on the site."
+permalink: "/contribute.html"
+section: "news"
+cta: false
+---
+
+  <div class="page-header">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="blogs.html">Blogs</a>
+        <span class="separator">/</span>
+        <span class="current">Write for us</span>
+      </nav>
+      <h1>Write for Healthier UK</h1>
+      <p class="lead">Tell us what you are doing to create health where you are. Anyone in the movement can write for us &mdash; you do not need to be a clinician, an academic or a member of anything.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container container-narrow">
+
+      <div class="card mb-5" style="background-color:var(--color-bg-alt); border-left:4px solid var(--color-accent-salmon);">
+        <h3>What happens after you submit</h3>
+        <ol style="margin:0.75rem 0 0; padding-left:1.35rem; list-style:decimal;">
+          <li style="margin-bottom:.4rem;">Your post goes to the Healthier UK editorial team &mdash; it does not appear on the site straight away.</li>
+          <li style="margin-bottom:.4rem;">We read it, and may come back to you with small suggestions.</li>
+          <li style="margin-bottom:.4rem;">Once approved it is published on the blogs page and on your own page, alongside your organisation.</li>
+        </ol>
+      </div>
+
+      <form id="contribute-form" class="contribute-form" novalidate>
+
+        <fieldset class="form-block">
+          <legend><h2>About you</h2></legend>
+
+          <div class="field">
+            <label for="authorName">Your name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="authorName" name="authorName" required autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="authorEmail">Your email <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="authorEmail" name="authorEmail" required autocomplete="email">
+            <p class="hint">Only used so we can come back to you about your post. It is never published.</p>
+          </div>
+
+          <div class="field">
+            <label for="role">Your role <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="role" name="role" required placeholder="Chief Executive, GP, Community organiser&hellip;">
+          </div>
+
+          <div class="field">
+            <label for="photo">A photo of you</label>
+            <input type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/webp">
+            <p class="hint">A head-and-shoulders photo, JPG or PNG, up to 5MB. Shown on your page and next to your posts.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-block">
+          <legend><h2>Your organisation</h2></legend>
+
+          <div class="field">
+            <label for="org">Organisation name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="org" name="org" required autocomplete="organization">
+          </div>
+
+          <div class="field">
+            <label for="orgUrl">Organisation website</label>
+            <input type="url" id="orgUrl" name="orgUrl" placeholder="https://">
+          </div>
+
+          <div class="field">
+            <label for="orgDescription">About your organisation</label>
+            <textarea id="orgDescription" name="orgDescription" rows="7" maxlength="2200"
+                      data-wordlimit="250"
+                      placeholder="Up to 250 words, in your own words. This appears on your page when someone clicks your name."></textarea>
+            <p class="hint"><span class="wordcount" data-for="orgDescription">0</span> of 250 words</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-block">
+          <legend><h2>Your blog</h2></legend>
+
+          <div class="field">
+            <label for="title">Title <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="title" name="title" required maxlength="120">
+          </div>
+
+          <div class="field">
+            <label for="summary">One-line summary <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="summary" name="summary" required maxlength="200">
+            <p class="hint">Shown on the blogs page under the title. One or two sentences.</p>
+          </div>
+
+          <div class="field">
+            <label for="lead">Opening paragraph <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="lead" name="lead" rows="3" required maxlength="500"></textarea>
+            <p class="hint">The standfirst, shown large at the top of your article.</p>
+          </div>
+
+          <div class="field">
+            <label for="body">The post <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="body" name="body" rows="16" required
+                      placeholder="Write as you would in an email. Leave a blank line between paragraphs."></textarea>
+            <p class="hint"><span class="wordcount" data-for="body">0</span> words. Around 600&ndash;900 works well.</p>
+          </div>
+
+          <div class="field">
+            <label for="image">A picture to go with it</label>
+            <input type="file" id="image" name="image" accept="image/jpeg,image/png,image/webp">
+            <p class="hint">Optional. JPG or PNG, up to 5MB. Please only send pictures you have permission to use.</p>
+          </div>
+        </fieldset>
+
+        <div class="field field-check">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I am happy for Healthier UK to publish this post, my name, role, photo and organisation on the website. <span class="req" aria-hidden="true">*</span></label>
+        </div>
+
+        <div id="turnstile-holder" data-sitekey=""></div>
+
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+
+        <div class="btn-group" style="margin-top:1.5rem;">
+          <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">Send for review</button>
+          <a href="blogs.html" class="btn btn-outline btn-lg">Back to blogs</a>
+        </div>
+      </form>
+
+      <div id="contribute-success" class="card" hidden
+           style="text-align:center; padding:3.5rem 2rem; background-color:var(--color-bg-alt);">
+        <h2 style="margin-bottom:0.75rem;">Thank you &mdash; it is with us</h2>
+        <p style="color:var(--hu-text-muted); max-width:46ch; margin:0 auto 1.75rem;">
+          Your post has gone to the Healthier UK editorial team. We will be in touch at the email
+          address you gave us. Nothing appears on the site until it has been reviewed.
+        </p>
+        <a href="blogs.html" class="btn btn-accent">Back to blogs</a>
+      </div>
+
+    </div>
+  </section>

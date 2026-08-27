@@ -1,0 +1,123 @@
+# Healthier UK — content editor
+# Everything here writes to the repository. The site rebuilds automatically
+# on Cloudflare Pages a minute or so after a change is saved.
+
+backend:
+  name: github
+  repo: theonlybird/healthier-uk
+  branch: main
+
+media_folder: assets/images
+public_folder: assets/images
+
+collections:
+  # ---------------------------------------------------------------- holding bay
+  - name: submissions
+    label: "Awaiting review"
+    label_singular: "submission"
+    description: >
+      Blogs sent in through the writers' portal. Nothing here is on the live site.
+      Read it, edit anything you want to change, then set "Published" to on and save.
+    folder: src/blog
+    extension: md
+    format: frontmatter
+    create: false
+    filter: { field: published, value: false }
+    summary: "{{title}} — {{fields.author}} ({{submittedAt | date('DD/MM/YYYY')}})"
+    sortable_fields: [submittedAt, title]
+    fields: &blogFields
+      - { name: published, label: "Published on the site", widget: boolean, default: false }
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: author, label: Author, widget: relation, collection: team, file: team,
+          search_fields: ["team.*.name"], display_fields: ["team.*.name"], value_field: "team.*.slug" }
+      - { name: summary, label: "Summary (shown on the blogs page)", widget: text }
+      - { name: lead, label: "Opening paragraph", widget: text }
+      - { name: image, label: "Article image", widget: image, required: false }
+      - { name: imageAlt, label: "Image description", widget: string, required: false }
+      - { name: body, label: "The post", widget: markdown }
+      - { name: description, label: "Search-engine description", widget: text, required: false }
+      - { name: submittedBy, label: "Submitted by (email)", widget: string, required: false }
+      - { name: submittedAt, label: "Submitted at", widget: datetime, required: false }
+
+  # ---------------------------------------------------------------- live blogs
+  - name: blog
+    label: "Blogs"
+    label_singular: "blog"
+    description: "Posts that are live on the site."
+    folder: src/blog
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{fields.author}}-{{slug}}"
+    filter: { field: published, value: true }
+    summary: "{{title}} — {{fields.author}}"
+    sortable_fields: [date, title]
+    fields: *blogFields
+
+  # ---------------------------------------------------------------- news
+  - name: news
+    label: "News & events"
+    label_singular: "news item"
+    folder: src/news
+    extension: md
+    format: frontmatter
+    create: true
+    fields:
+      - { name: published, label: "Published on the site", widget: boolean, default: true }
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: summary, label: "Summary", widget: text }
+      - { name: lead, label: "Opening paragraph", widget: text }
+      - { name: image, label: Image, widget: image, required: false }
+      - { name: imageAlt, label: "Image description", widget: string, required: false }
+      - { name: breadcrumb, label: "Short label", widget: string, required: false }
+      - { name: body, label: "The story", widget: markdown }
+
+  # ---------------------------------------------------------------- people
+  - name: team
+    label: "Our team"
+    files:
+      - name: team
+        label: "Team members"
+        file: src/_data/team.json
+        description: >
+          People shown on the team page. A new contributor added through the writers'
+          portal arrives here with "Show on the team page" turned off.
+        fields:
+          - name: team
+            label: Members
+            label_singular: member
+            widget: list
+            summary: "{{fields.name}} — {{fields.org}}"
+            fields:
+              - { name: published, label: "Show on the team page", widget: boolean, default: true }
+              - { name: name, label: Name, widget: string }
+              - { name: slug, label: "URL name", widget: string, hint: "Lower case, hyphens, no spaces. Changing this breaks existing links." }
+              - { name: role, label: Role, widget: string }
+              - { name: org, label: Organisation, widget: string }
+              - { name: orgUrl, label: "Organisation website", widget: string, required: false }
+              - { name: orgDescription, label: "About the organisation (up to 250 words)", widget: text, required: false }
+              - { name: photo, label: Photo, widget: image, required: false }
+              - { name: order, label: "Position on the team page", widget: number, value_type: int }
+              - { name: lead, label: "Line under their name", widget: string, required: false }
+              - { name: description, label: "Search-engine description", widget: text, required: false }
+
+  # ---------------------------------------------------------------- England regions
+  - name: englandRegions
+    label: "Mayoral regions"
+    files:
+      - name: regions
+        label: "Mayoral regions (England page)"
+        file: src/_data/englandRegions.json
+        fields:
+          - name: englandRegions
+            label: Regions
+            label_singular: region
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: url, label: "Page", widget: string }
+              - { name: authority, label: "Combined authority", widget: string }
+              - { name: summary, label: "One-line summary", widget: text }

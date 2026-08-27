@@ -1,0 +1,24 @@
+# Netlify build configuration for the Healthier UK site.
+# The Cloudflare equivalent lives in the Pages dashboard; both are kept working
+# so the hosting choice stays reversible.
+
+[build]
+  command = "npm run build"
+  publish = "_site"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# The admin editor must never be indexed.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Long cache for fingerprint-free static assets is not safe here (filenames are
+# stable), so keep images and CSS on a short revalidating cache instead.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

@@ -1,0 +1,6 @@
+{
+  "layout": "layouts/newsitem.njk",
+  "section": "news",
+  "cta": true,
+  "permalink": "/news-{{ page.fileSlug }}.html"
+}

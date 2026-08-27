@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+title: "News &amp; events"
+description: "Latest announcements, parliamentary meetings, policy launches, and events from Healthier UK."
+permalink: "/news.html"
+section: "news"
+cta: true
+---
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="current">News &amp; events</span>
+      </nav>
+      <h1>News &amp; events</h1>
+      <p class="lead">Stay up to date with key meetings, Parliamentary briefings, and coalition announcements.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+
+        {% for p in collections.news %}{% include "partials/newscard.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>

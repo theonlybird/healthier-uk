@@ -15,3 +15,8 @@ Thumbs.db
 # Local safety copies — the pre-redesign site is already in git history
 _backup-before-redesign/
 _to_delete/
+
+# Build output and dependencies (added with the Eleventy conversion)
+_site/
+node_modules/
+*.tar.gz

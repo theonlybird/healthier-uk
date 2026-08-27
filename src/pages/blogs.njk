@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+title: "Blogs"
+description: "Read thoughts, reflections, and insights on Health Creation from leaders across Healthier UK."
+permalink: "/blogs.html"
+section: "news"
+cta: true
+---
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="current">Blogs</span>
+      </nav>
+      <h1>Blogs &amp; perspectives</h1>
+      <p class="lead">Insights and commentary from leaders, clinicians, and community practitioners building a healthier UK.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+<div class="card mb-5" style="background-color:var(--color-bg-alt); border-left:4px solid var(--color-accent-salmon);">
+        <h3>Write for the Healthier UK blog</h3>
+        <p style="margin-bottom:0.75rem;">
+          Welcome to the blogs section of Healthier UK. This is your chance to contribute with your own blog or hear from members and anyone using the principles of Health Creation to build a healthier UK.
+        </p>
+        <p style="margin-bottom:0.75rem;">
+          Looking for one author in particular? <a href="team.html" style="color:var(--color-accent-salmon); font-weight:600;">Browse our team</a> and select a person to see everything they have written.
+        </p>
+        <p style="margin-bottom:1.25rem;">
+          If you want to contribute an article, submit it through the writers' portal and it will
+          come to us for review before it goes live.
+        </p>
+        <a href="contribute.html" class="btn btn-accent btn-sm">Submit a blog</a>
+      </div>
+
+      <div class="blog-search">
+        <label class="visually-hidden" for="blog-search-input">Search blogs</label>
+        <input type="search" id="blog-search-input" class="blog-search-input" data-search-target="#blog-grid"
+               placeholder="Search blogs by title, author or topic" autocomplete="off">
+        <p class="blog-search-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="grid-3" id="blog-grid">
+
+        {% for p in collections.blog %}{% set withAuthor = true %}{% include "partials/postcard.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+---
+{% set a = team | member(author) %}
+  <div class="page-header">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="blogs.html">Blogs</a>
+        <span class="separator">/</span>
+        <a href="author-{{ a.slug }}.html">{{ a.name }}</a>
+        <span class="separator">/</span>
+        <span class="current">{{ breadcrumb or title }}</span>
+      </nav>
+      <span class="post-date" style="display:block; margin-bottom:0.5rem;">{{ date | ukdate }} &bull; By <a href="author-{{ a.slug }}.html" style="color:inherit; text-decoration:underline;">{{ a.name }}</a></span>
+      <h1>{{ title }}</h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container container-narrow content-body">
+      <p class="lead">{{ lead }}</p>
+      {% if image %}<img src="assets/images/{{ image }}" alt="{{ imageAlt }}" style="{% if imageStyle == "narrow" %}max-width:320px; border-radius:var(--radius-lg); margin: 1.5rem 0;{% else %}width:100%; border-radius:var(--radius-lg); margin:1.75rem 0;{% endif %}" loading="lazy">{% endif %}
+      {{ content | safe }}
+      {% if placeholder %}<p style="margin-top:2.5rem;font-size:.86rem;color:var(--hu-text-muted);font-style:italic;">Placeholder article &mdash; sample content used to demonstrate the blog layout.</p>{% endif %}
+      <div style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
+        <a href="author-{{ a.slug }}.html" class="btn btn-outline">&larr; More from {{ a.name }}</a>
+        <a href="{{ actionHref or 'blogs.html' }}" class="btn btn-accent">{{ actionLabel or 'All blogs' }}</a>
+      </div>
+    </div>
+  </section>

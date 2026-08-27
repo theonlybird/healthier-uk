@@ -1,0 +1,13 @@
+{
+  "name": "healthier-uk",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Healthier UK website — static site built with Eleventy",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

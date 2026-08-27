@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{{ title | safe }} &mdash; HealthierUK.org</title><meta name="description" content="{{ description }}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"><link rel="stylesheet" href="assets/css/style.css"></head>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>{% include "partials/header.njk" %}
+<main id="main">
+{{ content | safe }}
+{% if cta %}{% include "partials/cta.njk" %}{% endif %}
+</main>
+{% include "partials/footer.njk" %}
+<script src="assets/js/main.js"></script>
+</body>
+</html>

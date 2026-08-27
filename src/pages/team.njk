@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+title: "Our team"
+description: "Meet the leadership team, co-chairs, and partners behind Healthier UK."
+permalink: "/team.html"
+section: "about"
+cta: true
+---
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="current">Team</span>
+      </nav>
+      <h1>Our team</h1>
+      <p class="lead">We are a network of leaders and innovators dedicated to creating health rather than simply managing sickness. Select anyone below to read their blogs.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+
+        {% for m in collections.team %}<a href="author-{{ m.slug }}.html" class="team-card">
+          <div class="team-card-image">
+            <img src="assets/images/{{ m.photo }}" alt="{{ m.name }}" loading="lazy">
+          </div>
+          <div class="team-card-body">
+            <span class="team-card-role">{{ m.role }}</span>
+            <h3 class="team-card-name">{{ m.name }}</h3>
+            <p class="team-card-org">{{ m.org }}</p>
+            <span class="team-card-blogs">{{ collections.blog | blogCount(m.slug) }} &rarr;</span>
+          </div>
+        </a>
+
+        {% endfor %}
+<div class="team-card" style="background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg) 100%); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:2rem;">
+          <h3 style="font-size:1.4rem; margin-bottom:0.75rem;">Join the movement</h3>
+          <p style="color:var(--color-text-muted); font-size:0.95rem; margin-bottom:1.5rem;">We are continuously expanding our cross-sector network across health, local government, housing, environment, and civil society.</p>
+          <a href="contact.html" class="btn btn-accent btn-sm">Partner With Us</a>
+        </div>
+
+      </div>
+    </div>
+  </section>

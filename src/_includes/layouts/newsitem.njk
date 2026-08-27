@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+---
+  <div class="page-header">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="news.html">News</a>
+        <span class="separator">/</span>
+        <span class="current">{{ breadcrumb or title }}</span>
+      </nav>
+      <span class="post-date" style="display:block; margin-bottom:0.5rem;">{{ date | ukdate }}</span>
+      <h1>{{ title }}</h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container container-narrow content-body">
+      <p class="lead">{{ lead }}</p>
+      {% if image %}<img src="assets/images/{{ image }}" alt="{{ imageAlt }}" style="width:100%;">{% endif %}
+      {{ content | safe }}
+      <div style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center;">
+        <a href="news.html" class="btn btn-outline">&larr; Back to News</a>
+        <a href="{{ actionHref or 'contact.html' }}" class="btn btn-accent">{{ actionLabel or 'Get in touch' }}</a>
+      </div>
+    </div>
+  </section>

@@ -260,3 +260,119 @@
     boot();
   }
 })();
+
+/* ------------------------------------------------------------------ *
+ * Blog search — filters the already-rendered cards. No index to build,
+ * no network request, works with JavaScript off (the cards just show).
+ * ------------------------------------------------------------------ */
+(function initBlogSearch() {
+  var input = document.querySelector('[data-search-target]');
+  if (!input) return;
+  var grid = document.querySelector(input.getAttribute('data-search-target'));
+  var status = document.querySelector('.blog-search-status');
+  if (!grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-search]'));
+
+  function apply() {
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (card) {
+      var hit = !q || card.getAttribute('data-search').toLowerCase().indexOf(q) !== -1;
+      card.hidden = !hit;
+      if (hit) shown++;
+    });
+    if (!status) return;
+    if (!q) status.textContent = '';
+    else if (shown === 0) status.textContent = 'No blogs match “' + input.value.trim() + '”.';
+    else status.textContent = shown + (shown === 1 ? ' blog' : ' blogs') + ' matching “' + input.value.trim() + '”.';
+  }
+
+  input.addEventListener('input', apply);
+  input.addEventListener('search', apply);
+})();
+
+/* ------------------------------------------------------------------ *
+ * Contributor form — live word counts, friendly validation, and a
+ * submission that keeps the reader on the page.
+ * ------------------------------------------------------------------ */
+(function initContributeForm() {
+  var form = document.getElementById('contribute-form');
+  if (!form) return;
+
+  var errorBox = document.getElementById('form-error');
+  var success  = document.getElementById('contribute-success');
+  var button   = document.getElementById('submit-btn');
+
+  function words(s) { return s.trim() ? s.trim().split(/\s+/).length : 0; }
+
+  Array.prototype.forEach.call(form.querySelectorAll('.wordcount'), function (out) {
+    var field = document.getElementById(out.getAttribute('data-for'));
+    if (!field) return;
+    var limit = parseInt(field.getAttribute('data-wordlimit'), 10);
+    var update = function () {
+      var n = words(field.value);
+      out.textContent = n;
+      if (limit) out.parentNode.classList.toggle('over', n > limit);
+    };
+    field.addEventListener('input', update);
+    update();
+  });
+
+  function fail(message, field) {
+    errorBox.textContent = message;
+    errorBox.hidden = false;
+    if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
+    errorBox.scrollIntoView({ block: 'center' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorBox.hidden = true;
+    Array.prototype.forEach.call(form.querySelectorAll('[aria-invalid]'), function (el) {
+      el.removeAttribute('aria-invalid');
+    });
+
+    var required = form.querySelectorAll('[required]');
+    for (var i = 0; i < required.length; i++) {
+      var f = required[i];
+      var empty = f.type === 'checkbox' ? !f.checked : !f.value.trim();
+      if (empty) {
+        return fail(f.type === 'checkbox'
+          ? 'Please confirm you are happy for us to publish this.'
+          : 'Please fill in “' + form.querySelector('label[for="' + f.id + '"]').textContent.replace('*', '').trim() + '”.', f);
+      }
+      if (f.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim())) {
+        return fail('That email address does not look right.', f);
+      }
+    }
+
+    var org = document.getElementById('orgDescription');
+    if (org && words(org.value) > 250) {
+      return fail('The organisation description is over 250 words — please trim it a little.', org);
+    }
+
+    for (var j = 0; j < 2; j++) {
+      var file = [document.getElementById('photo'), document.getElementById('image')][j];
+      if (file && file.files[0] && file.files[0].size > 5 * 1024 * 1024) {
+        return fail('“' + file.files[0].name + '” is larger than 5MB. Please use a smaller image.', file);
+      }
+    }
+
+    button.setAttribute('aria-busy', 'true');
+    button.textContent = 'Sending…';
+
+    fetch('/api/submit', { method: 'POST', body: new FormData(form) })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.d && res.d.error ? res.d.error : 'Submission failed');
+        form.hidden = true;
+        success.hidden = false;
+        success.scrollIntoView({ block: 'center' });
+      })
+      .catch(function (err) {
+        button.removeAttribute('aria-busy');
+        button.textContent = 'Send for review';
+        fail('Sorry — we could not send that just now (' + err.message + '). Please try again, or email the team.');
+      });
+  });
+})();
