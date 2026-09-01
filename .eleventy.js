@@ -3,6 +3,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("admin");
 
+
   // --- collections -------------------------------------------------------
   // A post or member with published:false is awaiting review — it exists in the
   // repo (so it can be read in the CMS) but never reaches the built site.
@@ -27,6 +28,15 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addFilter("member", (team, slug) =>
     (team || []).find((m) => m.slug === slug) || {});
+
+  // Organisations are records in their own right, so two people at the same
+  // organisation share one description and one spelling of its name.
+  // Falls back to whatever a submission typed, until an editor assigns it.
+  eleventyConfig.addFilter("orgOf", (organisations, m) => {
+    if (!m) return {};
+    const found = (organisations || []).find((o) => o.slug === m.orgSlug);
+    return found || { name: m.orgSuggested || "", url: "", description: "" };
+  });
   eleventyConfig.addFilter("byAuthor", (posts, slug) =>
     (posts || []).filter((p) => p.data.author === slug));
   eleventyConfig.addFilter("blogCount", (posts, slug) => {

@@ -94,11 +94,26 @@ Every post, news item and team member carries a `published` flag.
 That flag is the whole review mechanism. Nothing a contributor sends can reach the site
 without someone turning it on.
 
-## Organisation profiles
+## Organisations
 
-Each team member can carry `orgDescription` (up to 250 words) and `orgUrl`. When filled
-in, an "About <organisation>" panel appears on their page. When blank, the panel is
-hidden entirely — so people can be added before their copy arrives.
+Organisations are their own records in `src/_data/organisations.json` — a name, a
+reference, a website and an optional description of up to 250 words. Team members point
+at one by its reference (`orgSlug`) rather than each carrying their own copy.
+
+That is deliberate. Two people at the College of Medicine share one record, so there is
+one spelling of the name and one description. Nobody can end up with "NASP" on one page
+and "National Academy for Social Prescribing" on another, or two different accounts of
+what the same organisation does.
+
+When an organisation has a description, an "About <organisation>" panel appears on the
+page of everyone who works there, directly under their role and above their photo. When
+it is blank the panel is hidden, so people can be added long before their organisation
+sends any copy.
+
+**A submission never sets the organisation.** The form's answers arrive on the new member
+as `orgSuggested` and `orgDescriptionSuggested` — what they typed. In the CMS an editor
+picks the right organisation from the dropdown, adding a new one under **Organisations**
+first if it genuinely is new, and then clears those two fields.
 
 ## Mayoral regions
 

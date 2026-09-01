@@ -100,7 +100,10 @@ async function upsertMember(gh, member) {
     const existing = team.find((m) => m.slug === member.slug);
     if (existing) {
       // Never overwrite a curated member's details from a public form; only fill blanks.
-      for (const key of ['photo', 'orgUrl', 'orgDescription']) {
+      // The organisation is deliberately not set here — an editor picks it from the
+      // Organisations list, so two people at one organisation cannot end up with two
+      // spellings or two different descriptions.
+      for (const key of ['photo', 'orgSuggested', 'orgDescriptionSuggested']) {
         if (!existing[key] && member[key]) existing[key] = member[key];
       }
     } else {
@@ -205,12 +208,11 @@ export default async function handler(request) {
       slug: authorSlug,
       name: authorName,
       role: field('role'),
-      org: field('org'),
       photo: photo || '',
-      lead: `${field('role')}, ${field('org')}`,
       description: `Blog posts written by ${authorName} for Healthier UK.`,
-      orgUrl: field('orgUrl'),
-      orgDescription,
+      // what they typed, for an editor to match against the Organisations list
+      orgSuggested: field('org'),
+      orgDescriptionSuggested: orgDescription,
     });
 
     return json({ ok: true, slug: postSlug, member: memberResult });

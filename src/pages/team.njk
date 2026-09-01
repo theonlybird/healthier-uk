@@ -29,7 +29,7 @@ cta: true
           <div class="team-card-body">
             <span class="team-card-role">{{ m.role }}</span>
             <h3 class="team-card-name">{{ m.name }}</h3>
-            <p class="team-card-org">{{ m.org }}</p>
+            <p class="team-card-org">{{ (organisations | orgOf(m)).name }}</p>
             <span class="team-card-blogs">{{ collections.blog | blogCount(m.slug) }} &rarr;</span>
           </div>
         </a>

@@ -12,6 +12,7 @@ eleventyComputed:
   description: "{{ m.description }}"
 ---
 {% set posts = collections.blog | byAuthor(m.slug) %}
+{% set org = organisations | orgOf(m) %}
   <div class="page-header">
     <div class="container">
       <nav class="breadcrumbs" aria-label="Breadcrumbs">
@@ -22,28 +23,28 @@ eleventyComputed:
         <span class="current">{{ m.name }}</span>
       </nav>
       <h1>Blogs from {{ m.name }}</h1>
-      <p class="lead">{{ m.lead }}</p>
+      <p class="lead">{{ m.role }}{% if org.name %}, {{ org.name }}{% endif %}</p>
     </div>
   </div>
 
   <section class="section">
     <div class="container">
+      {% if org.description %}
+      <div class="card mb-5" style="background-color:var(--color-bg-alt); border-left:4px solid var(--color-accent-salmon);">
+        <h2 style="font-size:1.3rem; margin-bottom:0.75rem;">About {{ org.name }}</h2>
+        <p style="margin-bottom:{% if org.url %}0.9rem{% else %}0{% endif %};">{{ org.description }}</p>
+        {% if org.url %}<a href="{{ org.url }}" class="post-readmore" style="margin-top:0;" rel="noopener">Visit {{ org.name }} &rarr;</a>{% endif %}
+      </div>
+      {% endif %}
+
       <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; margin-bottom:2.5rem;">
         <img src="assets/images/{{ m.photo }}" alt="{{ m.name }}" width="110" height="110" style="width:110px; height:110px; border-radius:50%; object-fit:cover; object-position:top; box-shadow:var(--shadow-sm);">
         <div>
           <p style="margin:0; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">{{ m.name }}</p>
-          <p style="margin:.15rem 0 0; color:var(--hu-text-muted);">{{ m.role }} &bull; {{ m.org }}</p>
+          <p style="margin:.15rem 0 0; color:var(--hu-text-muted);">{{ m.role }}{% if org.name %} &bull; {{ org.name }}{% endif %}</p>
           <p style="margin:.75rem 0 0;"><a href="team.html" class="post-readmore" style="margin-top:0;">&larr; Back to our team</a></p>
         </div>
       </div>
-
-      {% if m.orgDescription %}
-      <div class="card mb-5" style="background-color:var(--color-bg-alt); border-left:4px solid var(--color-accent-salmon);">
-        <h2 style="font-size:1.3rem; margin-bottom:0.75rem;">About {{ m.org }}</h2>
-        <p style="margin-bottom:{% if m.orgUrl %}0.9rem{% else %}0{% endif %};">{{ m.orgDescription }}</p>
-        {% if m.orgUrl %}<a href="{{ m.orgUrl }}" class="post-readmore" style="margin-top:0;" rel="noopener">Visit {{ m.org }} &rarr;</a>{% endif %}
-      </div>
-      {% endif %}
 
       {% if posts.length %}
       <div class="grid-3">

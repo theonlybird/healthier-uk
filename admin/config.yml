@@ -29,7 +29,7 @@ collections:
       - { name: published, label: "Published on the site", widget: boolean, default: false }
       - { name: title, label: Title, widget: string }
       - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
-      - { name: author, label: Author, widget: relation, collection: team, file: team,
+      - { name: author, label: "Assign to member", widget: relation, collection: team, file: team,
           search_fields: ["team.*.name"], display_fields: ["team.*.name"], value_field: "team.*.slug" }
       - { name: summary, label: "Summary (shown on the blogs page)", widget: text }
       - { name: lead, label: "Opening paragraph", widget: text }
@@ -74,6 +74,33 @@ collections:
       - { name: breadcrumb, label: "Short label", widget: string, required: false }
       - { name: body, label: "The story", widget: markdown }
 
+  # ---------------------------------------------------------------- organisations
+  - name: organisations
+    label: "Organisations"
+    files:
+      - name: organisations
+        label: "Organisations"
+        file: src/_data/organisations.json
+        description: >
+          One record per organisation. The description is optional, and is written once
+          here rather than by each person — so two people from the same organisation
+          never end up with two different spellings or two different descriptions.
+        fields:
+          - name: organisations
+            label: Organisations
+            label_singular: organisation
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name", widget: string,
+                  hint: "Write it once, in full, exactly as they write it themselves." }
+              - { name: slug, label: "Reference", widget: string,
+                  hint: "Lower case, hyphens, no spaces. Do not change it once people are linked to it." }
+              - { name: url, label: "Website", widget: string, required: false }
+              - { name: description, label: "About the organisation (up to 250 words)",
+                  widget: text, required: false,
+                  hint: "Optional. When filled in, it appears on the page of everyone who works there." }
+
   # ---------------------------------------------------------------- people
   - name: team
     label: "Our team"
@@ -95,12 +122,21 @@ collections:
               - { name: name, label: Name, widget: string }
               - { name: slug, label: "URL name", widget: string, hint: "Lower case, hyphens, no spaces. Changing this breaks existing links." }
               - { name: role, label: Role, widget: string }
-              - { name: org, label: Organisation, widget: string }
-              - { name: orgUrl, label: "Organisation website", widget: string, required: false }
-              - { name: orgDescription, label: "About the organisation (up to 250 words)", widget: text, required: false }
+              - name: orgSlug
+                label: "Organisation"
+                widget: relation
+                collection: organisations
+                file: organisations
+                search_fields: ["organisations.*.name"]
+                display_fields: ["organisations.*.name"]
+                value_field: "organisations.*.slug"
+                hint: "Pick from the list. If the organisation is not there yet, add it under Organisations first."
+              - { name: orgSuggested, label: "Organisation they typed on the form", widget: string, required: false,
+                  hint: "Only filled in on a new submission. Match it to the list above, then clear this." }
+              - { name: orgDescriptionSuggested, label: "Description they sent", widget: text, required: false,
+                  hint: "Move this into the organisation record if it is worth keeping, then clear it." }
               - { name: photo, label: Photo, widget: image, required: false }
               - { name: order, label: "Position on the team page", widget: number, value_type: int }
-              - { name: lead, label: "Line under their name", widget: string, required: false }
               - { name: description, label: "Search-engine description", widget: text, required: false }
 
   # ---------------------------------------------------------------- pages

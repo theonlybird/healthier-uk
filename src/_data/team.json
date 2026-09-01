@@ -3,143 +3,110 @@
     "slug": "william-bird",
     "name": "Dr William Bird MBE",
     "role": "Co-Chair",
-    "org": "College of Medicine",
+    "orgSlug": "college-of-medicine",
     "photo": "team-william-bird.png",
     "order": 1,
-    "lead": "Co-Chair, College of Medicine",
-    "description": "Blog posts written by Dr William Bird MBE for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "PLACEHOLDER — replace with the organisation's own words (up to 250 words). This panel appears on a member's page when their organisation description is filled in, and is hidden entirely when it is blank, so members can be added before their copy arrives.",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Dr William Bird MBE for Healthier UK."
   },
   {
     "slug": "frances-elliot",
     "name": "Dr Frances Elliot",
     "role": "Co-Chair",
-    "org": "British Society of Lifestyle Medicine",
+    "orgSlug": "british-society-of-lifestyle-medicine",
     "photo": "team-frances-elliot.jpg",
     "order": 2,
-    "lead": "Co-Chair, British Society of Lifestyle Medicine",
-    "description": "Blog posts written by Dr Frances Elliot for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Dr Frances Elliot for Healthier UK."
   },
   {
     "slug": "minal-bakhai",
     "name": "Dr Minal Bakhai",
     "role": "Co-Chair",
-    "org": "Health Creation Leader",
+    "orgSlug": "health-creation-leader",
     "photo": "team-minal-bakhai.png",
     "order": 3,
-    "lead": "Co-Chair, Health Creation Leader",
-    "description": "Blog posts written by Dr Minal Bakhai for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Dr Minal Bakhai for Healthier UK."
   },
   {
     "slug": "alexandra-coulter",
     "name": "Alexandra Coulter",
     "role": "CEO",
-    "org": "National Centre for Creative Health",
+    "orgSlug": "national-centre-for-creative-health",
     "photo": "team-alexandra-coulter.jpg",
     "order": 4,
-    "lead": "CEO, National Centre for Creative Health",
-    "description": "Blog posts written by Alexandra Coulter for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Alexandra Coulter for Healthier UK."
   },
   {
     "slug": "amanda-king",
     "name": "Amanda King",
     "role": "CEO",
-    "org": "College of Medicine",
+    "orgSlug": "college-of-medicine",
     "photo": "team-amanda-king.jpg",
     "order": 5,
-    "lead": "CEO, College of Medicine",
-    "description": "Blog posts written by Amanda King for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Amanda King for Healthier UK."
   },
   {
     "slug": "amy-burbridge",
     "name": "Amy Burbridge",
     "role": "Head of Master Development",
-    "org": "Homes England",
+    "orgSlug": "homes-england",
     "photo": "team-amy-burbridge.jpg",
     "order": 6,
-    "lead": "Head of Master Development, Homes England",
-    "description": "Blog posts written by Amy Burbridge for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Amy Burbridge for Healthier UK."
   },
   {
     "slug": "catherine-woodhead",
     "name": "Catherine Woodhead",
     "role": "CEO",
-    "org": "Living Streets",
+    "orgSlug": "living-streets",
     "photo": "team-catherine-woodhead.png",
     "order": 7,
-    "lead": "CEO, Living Streets",
-    "description": "Blog posts written by Catherine Woodhead for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Catherine Woodhead for Healthier UK."
   },
   {
     "slug": "charlotte-osborn-forde",
     "name": "Charlotte Osborn-Forde",
     "role": "CEO",
-    "org": "National Academy for Social Prescribing (NASP)",
+    "orgSlug": "national-academy-for-social-prescribing-nasp",
     "photo": "team-charlotte-osborn-forde.png",
     "order": 8,
-    "lead": "CEO, National Academy for Social Prescribing (NASP)",
-    "description": "Blog posts written by Charlotte Osborn-Forde for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Charlotte Osborn-Forde for Healthier UK."
   },
   {
     "slug": "clare-mosley",
     "name": "Dr Clare Mosley",
     "role": "GP & Journalist",
-    "org": "Independent Journalist & GP",
+    "orgSlug": "independent-journalist-gp",
     "photo": "team-clare-mosley.png",
     "order": 9,
-    "lead": "GP & Journalist, Independent Journalist & GP",
-    "description": "Blog posts written by Dr Clare Mosley for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Dr Clare Mosley for Healthier UK."
   },
   {
     "slug": "dom-higgins",
     "name": "Dom Higgins",
     "role": "Head of Health",
-    "org": "The Wildlife Trusts",
+    "orgSlug": "the-wildlife-trusts",
     "photo": "team-dom-higgins.png",
     "order": 10,
-    "lead": "Head of Health, The Wildlife Trusts",
-    "description": "Blog posts written by Dom Higgins for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Dom Higgins for Healthier UK."
   },
   {
     "slug": "gillian-orrow",
     "name": "Dr Gillian Orrow",
     "role": "Grants & Partnerships",
-    "org": "GP, Growing Health Together",
+    "orgSlug": "gp-growing-health-together",
     "photo": "team-gillian-orrow.jpg",
     "order": 11,
-    "lead": "Grants & Partnerships, GP, Growing Health Together",
-    "description": "Blog posts written by Dr Gillian Orrow for Healthier UK.",
-    "orgUrl": "",
-    "orgDescription": "",
-    "published": true
+    "published": true,
+    "description": "Blog posts written by Dr Gillian Orrow for Healthier UK."
   }
 ]

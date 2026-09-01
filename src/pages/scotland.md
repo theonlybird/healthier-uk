@@ -8,8 +8,8 @@ callout: <strong>Get Involved in Scotland:</strong> If you are a Scottish organi
   interested in joining our Scottish network, please <a href="contact.html">contact our team</a>.
 leadIn: In Scotland, Healthier UK partners with local authorities, NHS Scotland boards, and community
   organisations to champion health creation across urban centres and rural regions.
-image: feature-nature.jpeg
-imageAlt: Scottish landscapes and nature access
+image: hero-community.jpeg
+imageAlt: People celebrating together at a community event
 ---
 
 ## Scottish health priorities
