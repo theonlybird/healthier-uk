@@ -1310,3 +1310,11 @@ a.team-card:hover .team-card-blogs { color: var(--hu-coral-dark); }
   background: #fff1ee; border-left: 4px solid var(--color-accent-salmon); color: var(--hu-ink);
 }
 .contribute-form button[aria-busy="true"] { opacity: .65; pointer-events: none; }
+
+/* ---------- Editable page content ---------- */
+/* Images written as markdown carry no inline width, so set it here. */
+.content-body img { width: 100%; }
+.content-body p:has(> img:only-child) { margin: 0; }
+/* Links inside a highlight box used to carry inline styles; now handled here
+   so the box can be edited as plain text in the CMS. */
+.highlight-box a { color: var(--color-accent-salmon); font-weight: 600; }

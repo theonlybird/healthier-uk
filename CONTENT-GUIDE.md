@@ -105,6 +105,25 @@ hidden entirely — so people can be added before their copy arrives.
 `src/_data/englandRegions.json` drives the Mayoral regions list on the England page.
 Add an entry and a card appears. West Midlands is the only one there now.
 
+## Editing the standing pages
+
+Seven pages are editable in the CMS under **Website pages**: About us, England,
+Scotland, Northern Ireland, West Midlands, Combined authorities and Arms length bodies.
+
+Each one is a markdown file in `src/pages/`. The heading, standfirst, body text,
+highlighted boxes and card grids are all fields; the header, menu, footer and page
+furniture live in `src/_includes/layouts/textpage.njk` and are not editable from the CMS,
+so a bad edit can change the words but not break the page.
+
+`src/pages/pages.json` supplies the layout and the URL for all of them, so those never
+appear in the editor. The URL comes from the filename — `scotland.md` becomes
+`/scotland.html` — which is why creating and deleting pages is turned off in the CMS.
+
+**Still template files, not yet editable in the CMS:** the home page (too complex a
+layout to hand to a text editor safely), Contact (contains the enquiry form), Wales
+(contains the letter card), Research portal, Neighbourhood health and the Parliamentary
+launch page.
+
 ## Search
 
 The blogs page has a search box. It filters the cards already on the page — no index to

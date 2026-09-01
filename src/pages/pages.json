@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/textpage.njk",
+  "permalink": "/{{ page.fileSlug }}.html",
+  "cta": true
+}

@@ -103,6 +103,92 @@ collections:
               - { name: lead, label: "Line under their name", widget: string, required: false }
               - { name: description, label: "Search-engine description", widget: text, required: false }
 
+  # ---------------------------------------------------------------- pages
+  - name: pages
+    label: "Website pages"
+    label_singular: "page"
+    description: >
+      The standing pages on the site. Your changes go live a minute or so after you
+      save. You cannot break the layout from here — the menu, header, footer and
+      page furniture are not part of what you are editing.
+    folder: src/pages
+    extension: md
+    format: frontmatter
+    create: false
+    delete: false
+    summary: "{{title}}"
+    sortable_fields: [title]
+    fields:
+      - { name: title, label: "Page name", widget: string,
+          hint: "Shown in the browser tab and in search results." }
+      - { name: heading, label: "Heading at the top of the page", widget: string, required: false,
+          hint: "Leave blank to use the page name." }
+      - { name: lead, label: "Standfirst", widget: text, required: false,
+          hint: "The larger line under the heading." }
+      - { name: leadIn, label: "Opening paragraph", widget: text, required: false,
+          hint: "Shown large at the start of the page text. Only used on some pages." }
+      - { name: image, label: "Picture at the top of the text", widget: image, required: false }
+      - { name: imageAlt, label: "Description of that picture", widget: string, required: false,
+          hint: "Read aloud by screen readers. Describe what is in the photo." }
+
+      - { name: body, label: "Page text", widget: markdown, modes: [rich_text, raw],
+          hint: "If you see a grey block of code, leave it alone and edit the text around it." }
+
+      - { name: callout, label: "Highlighted box at the end", widget: text, required: false,
+          hint: "Appears in a box with a green edge. Basic HTML such as <strong> works here." }
+
+      - name: ctaBox
+        label: "Call-to-action box"
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: heading, label: Heading, widget: string }
+          - { name: text, label: Text, widget: text }
+          - { name: url, label: "Button links to", widget: string }
+          - { name: buttonLabel, label: "Button text", widget: string }
+
+      - name: featureCard
+        label: "Highlighted card"
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: url, label: "Links to", widget: string }
+          - { name: text, label: Text, widget: text }
+          - { name: buttonLabel, label: "Button text", widget: string }
+
+      - { name: cardsHeading, label: "Heading above the card grid", widget: string, required: false }
+      - name: cards
+        label: "Card grid"
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.title}}"
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: url, label: "Links to", widget: string }
+          - { name: text, label: Text, widget: text }
+
+      - { name: backHref, label: "Back button links to", widget: string, required: false }
+      - { name: backLabel, label: "Back button text", widget: string, required: false }
+      - { name: nextHref, label: "Next button links to", widget: string, required: false }
+      - { name: nextLabel, label: "Next button text", widget: string, required: false }
+
+      - { name: description, label: "Search-engine description", widget: text, required: false,
+          hint: "One or two sentences. Shown under the page title on Google." }
+
+      # kept so they survive editing — not meant to be changed by hand
+      - { name: section, label: "Menu section", widget: hidden }
+      - { name: breadcrumbs, label: "Breadcrumb trail", widget: hidden, required: false }
+      - { name: wide, label: "Full-width layout", widget: hidden, required: false }
+      - { name: regionsBlock, label: "Show mayoral regions", widget: hidden, required: false }
+      - { name: introHeading, label: "Intro heading", widget: string, required: false }
+      - { name: introImage, label: "Intro picture", widget: image, required: false }
+      - { name: introImageAlt, label: "Intro picture description", widget: string, required: false }
+      - { name: nextClass, label: "Next button style", widget: hidden, required: false }
+
   # ---------------------------------------------------------------- England regions
   - name: englandRegions
     label: "Mayoral regions"
