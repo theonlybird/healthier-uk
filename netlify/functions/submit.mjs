@@ -193,8 +193,9 @@ export default async function handler(request) {
       `submittedBy: ${yaml(field('authorEmail'))}`,
       `submittedAt: ${yaml(new Date().toISOString())}`,
       '---',
-      '',
-    ].filter(Boolean).join('\n');
+      // filter(Boolean) drops the optional image lines — and would also drop a
+      // trailing '' — so the blank line after the closing delimiter is added here.
+    ].filter(Boolean).join('\n') + '\n\n';
 
     const existingPost = await gh.get(`src/blog/${postSlug}.md`);
     await gh.put(
