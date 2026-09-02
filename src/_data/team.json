@@ -119,5 +119,16 @@
     "orgDescriptionSuggested": "Intelligent Health healp local authorities tackle health inequalities.",
     "order": 12,
     "published": false
+  },
+  {
+    "slug": "zz-test-deleteme",
+    "name": "ZZ Test Deleteme",
+    "role": "Tester",
+    "photo": "",
+    "description": "Blog posts written by ZZ Test Deleteme for Healthier UK.",
+    "orgSuggested": "Test Org",
+    "orgDescriptionSuggested": "",
+    "order": 13,
+    "published": false
   }
 ]
