@@ -6,6 +6,11 @@ backend:
   name: github
   repo: theonlybird/healthier-uk
   branch: main
+  # The sign-in helper. /admin is static files and cannot keep a secret, so this
+  # Worker completes the GitHub handshake on its behalf. Deployed once from
+  # github.com/sveltia/sveltia-cms-auth into William's Cloudflare account; the
+  # GitHub OAuth app's callback URL must be this address with /callback on the end.
+  base_url: https://sveltia-cms-auth.william-187.workers.dev
 
 media_folder: assets/images
 public_folder: assets/images
