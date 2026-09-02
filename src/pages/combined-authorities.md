@@ -37,4 +37,4 @@ Mayoral Combined authorities (MCAs) hold the levers that shape daily living: reg
 
 ## The Prevention Demonstrators Model
 
-Healthier UK works with combined authorities across the country to establish Mayoral prevention demonstrators. Rather than short-term pilots that evaporate when seed grants end, we support regions in adopting long-term operating models where savings generated from reduced NHS and welfare demand are reinvested into grassroots community assets. It's something we are all trying together.
+Healthier UK works with combined authorities across the country to establish Mayoral prevention demonstrators. Rather than short-term pilots that evaporate when seed grants end, we support regions in adopting long-term operating models where savings generated from reduced NHS and welfare demand are reinvested into grassroots community assets.
