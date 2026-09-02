@@ -366,8 +366,14 @@
       .then(function (res) {
         if (!res.ok) throw new Error(res.d && res.d.error ? res.d.error : 'Submission failed');
         form.hidden = true;
+        // Once it is sent, the page is just the thank-you: the page heading and
+        // the "what happens next" steps have both served their purpose.
+        var intro = document.getElementById('contribute-intro');
+        var steps = document.getElementById('contribute-steps');
+        if (intro) intro.hidden = true;
+        if (steps) steps.hidden = true;
         success.hidden = false;
-        success.scrollIntoView({ block: 'center' });
+        window.scrollTo(0, 0);
       })
       .catch(function (err) {
         button.removeAttribute('aria-busy');
