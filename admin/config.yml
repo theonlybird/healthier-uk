@@ -85,7 +85,7 @@ collections:
     files:
       - name: organisations
         label: "Organisations"
-        file: src/_data/organisations.json
+        file: src/_data/cms/organisations.json
         description: >
           One record per organisation. The description is optional, and is written once
           here rather than by each person — so two people from the same organisation
@@ -112,7 +112,7 @@ collections:
     files:
       - name: team
         label: "Team members"
-        file: src/_data/team.json
+        file: src/_data/cms/team.json
         description: >
           People shown on the team page. A new contributor added through the writers'
           portal arrives here with "Show on the team page" turned off.

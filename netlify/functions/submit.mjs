@@ -93,9 +93,10 @@ async function verifyTurnstile(env, token, ip) {
 /** Add or update the contributor in team.json, retrying on a concurrent write. */
 async function upsertMember(gh, member) {
   for (let attempt = 0; attempt < 3; attempt++) {
-    const file = await gh.get('src/_data/team.json');
-    if (!file) throw new Error('team.json not found in the repository');
-    const team = JSON.parse(decodeBase64(file.content));
+    const file = await gh.get('src/_data/cms/team.json');
+    if (!file) throw new Error('cms/team.json not found in the repository');
+    const doc = JSON.parse(decodeBase64(file.content));
+    const team = doc.team;
 
     const existing = team.find((m) => m.slug === member.slug);
     if (existing) {
@@ -111,8 +112,8 @@ async function upsertMember(gh, member) {
     }
 
     const result = await gh.put(
-      'src/_data/team.json',
-      encodeText(JSON.stringify(team, null, 2) + '\n'),
+      'src/_data/cms/team.json',
+      encodeText(JSON.stringify({ ...doc, team }, null, 2) + '\n'),
       `Submission: ${existing ? 'update' : 'add'} ${member.name}`,
       file.sha
     );
