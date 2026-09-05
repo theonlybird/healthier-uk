@@ -1,64 +1,70 @@
 {
   "organisations": [
     {
-      "slug": "college-of-medicine",
       "name": "College of Medicine",
+      "slug": "college-of-medicine",
       "url": "https://collegeofmedicine.org.uk",
       "description": "PLACEHOLDER — to be replaced with the organisation's own words, up to 250 words. This panel is shared by everyone at this organisation, so it is written once and appears on all of their pages."
     },
     {
-      "slug": "british-society-of-lifestyle-medicine",
       "name": "British Society of Lifestyle Medicine",
+      "slug": "british-society-of-lifestyle-medicine",
       "url": "",
       "description": ""
     },
     {
-      "slug": "health-creation-leader",
       "name": "Health Creation Leader",
+      "slug": "health-creation-leader",
       "url": "",
       "description": ""
     },
     {
-      "slug": "national-centre-for-creative-health",
       "name": "National Centre for Creative Health",
+      "slug": "national-centre-for-creative-health",
       "url": "",
       "description": ""
     },
     {
-      "slug": "homes-england",
       "name": "Homes England",
+      "slug": "homes-england",
       "url": "",
       "description": ""
     },
     {
-      "slug": "living-streets",
       "name": "Living Streets",
+      "slug": "living-streets",
       "url": "",
       "description": ""
     },
     {
-      "slug": "national-academy-for-social-prescribing-nasp",
       "name": "National Academy for Social Prescribing (NASP)",
+      "slug": "national-academy-for-social-prescribing-nasp",
       "url": "",
       "description": ""
     },
     {
-      "slug": "independent-journalist-gp",
       "name": "Independent Journalist & GP",
+      "slug": "independent-journalist-gp",
       "url": "",
       "description": ""
     },
     {
-      "slug": "the-wildlife-trusts",
       "name": "The Wildlife Trusts",
-      "url": "",
-      "description": ""
+      "slug": "the-wildlife-trusts",
+      "url": "https://www.wildlifetrusts.org/",
+      "description": "The Wildlife Trusts is a movement of 46 local Wildlife Trusts and a central charity (the Royal Society of Wildlife Trusts), working across the UK, Alderney and the Isle of Man. It is the largest grassroots organisation dedicated to protecting and restoring wildlife. \n\nWe take care of the wildlife on your doorsteps - and we’re nature’s champions in the hallways of power. We work in and with local communities to help people take meaningful action for nature.  \n\n Local Action. Collective Impact. Global Change\n\n Every Wildlife Trust is an independent charity, made by groups of people getting together, to make a positive difference to wildlife and people. \n\nTogether, we have more than 945,000 members, over 33,000 volunteers, 4,100 staff and 600 trustees, and manage over 2,600 nature reserves for nature and for people. We are not a small voice in natureʼs corner. We are the UKʼs biggest movement for nature. And if enough of us make the right choices, nature has the power to bounce back faster than we imagine.\n \nOur vision\nOur vision is of a thriving natural world, with our wildlife and natural habitats playing a valued role in addressing the climate and ecological emergencies, and everyone inspired to get involved in nature’s recovery.\n\nProtecting what’s left isn’t enough. We need to restore nature at a global scale, on land and at sea. And it needs to happen now."
     },
     {
-      "slug": "gp-growing-health-together",
       "name": "GP, Growing Health Together",
+      "slug": "gp-growing-health-together",
       "url": "",
-      "description": ""
+      "description": "Growing Health Together is an initiative supporting the NHS to collaborate with people and partners to improve the conditions for health and wellbeing in neighbourhoods across East Surrey. It began as a grassroots collaboration between GPs, their patients and local partners outside of the NHS and was commissioned by NHS Surrey Heartlands in December 2020. Growing Health Together is hosted by Alliance for Better Care.\n\nHealth: Supporting physical, social and mental health for people of all ages and backgrounds\n\nEquity: Enhancing access to health-giving opportunities, such as movement, social connection and nature connection\n\nSustainability: Reducing waste and supporting a healthy natural environment, recognising this is critical to human health. How we work\nGrowing Health Together supports the establishment of trusted relationships between the NHS, local communities, local authorities, charities, schools, businesses, farms and other partners within neighbourhoods across East Surrey. Each area is working on different projects to support health and wellbeing  but common principles of work in each area include:\n\nIdentifying existing health and wellbeing opportunities, outside of the health service, within each locality, and highlighting them to NHS staff and patients so that more people might benefit.\n\nListening to local people’s views on the sources of and barriers to health in their communities.\n\nSupporting and enabling community members to lead their own health creation activities.\n\nFacilitating collaboration between citizens and local organisations in order to co-create better conditions for health and wellbeing in our communities, and to drive improvements in NHS services."
+    },
+    {
+      "name": "International Futures Forum",
+      "slug": "international_futures_forum",
+      "url": "https://www.internationalfuturesforum.com/",
+      "description": "International Futures Forum (IFF) is a charity with a mission to release potential in people, communities and organisations to rise to complex challenges and uncertain times.\n\nDrawing on 25 years of experience, we develop capacity and enable transformative innovation in diverse contexts - governments, civil society, businesses and multi-stakeholder collaborations - generating hope, agency and collective action.\n\nThe IFF Community offers a space for reflection, thoughtful engagement and mutual support, and we provide a selection of free resources through our Practice Centre."
     }
   ]
 }
