@@ -121,18 +121,6 @@
       "description": "Blog posts written by Dom Higgins for Healthier UK."
     },
     {
-      "published": true,
-      "name": "Dr Gillian Orrow",
-      "slug": "gillian-orrow",
-      "role": "Grants & Partnerships",
-      "orgSlug": "gp-growing-health-together",
-      "orgSuggested": "",
-      "orgDescriptionSuggested": "",
-      "photo": "team-gillian-orrow.jpg",
-      "order": 11,
-      "description": "Blog posts written by Dr Gillian Orrow for Healthier UK."
-    },
-    {
       "published": false,
       "name": "Theo Bird",
       "slug": "theo-bird",
@@ -152,7 +140,7 @@
       "orgSlug": "gp-growing-health-together",
       "orgSuggested": "",
       "orgDescriptionSuggested": "",
-      "photo": "/assets/images/pasted-image-1788641516240.png",
+      "photo": "/assets/images/Gillian Orrow.png",
       "order": 15,
       "description": "GP, Neighbourhood_Health, Surrey,"
     },
