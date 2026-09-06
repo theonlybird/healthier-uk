@@ -1380,3 +1380,14 @@ a.team-card:hover .team-card-blogs { color: var(--hu-coral-dark); }
 }
 .org-about img { max-width: 100%; height: auto; border-radius: var(--radius-sm); }
 .org-about hr { border: 0; border-top: 1px solid var(--hu-border); margin: 1.25rem 0; }
+
+/* --------------------------------------------------------------------------
+   Close the gap under a page header.
+   .page-header already carries up to 5rem of bottom padding plus a 44px
+   decorative curve, and the section that follows then adds its own 6rem on top.
+   Stacked, that leaves a conspicuous band of empty cream before the first
+   content — most obvious where a card follows, as on the author and blog pages.
+   Only the following section's top padding is reduced, so the curve keeps its
+   position relative to the heading.
+   -------------------------------------------------------------------------- */
+.page-header + .section { padding-top: clamp(1.5rem, 2.5vw, 2.5rem); }
