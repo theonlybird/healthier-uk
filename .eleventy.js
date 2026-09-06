@@ -1,3 +1,5 @@
+const MarkdownIt = require("markdown-it");
+
 module.exports = function (eleventyConfig) {
   // images, CSS and JS stay where they are at the repo root
   eleventyConfig.addPassthroughCopy("assets");
@@ -21,6 +23,39 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => (a.order || 0) - (b.order || 0)));
 
   // --- filters -----------------------------------------------------------
+  /**
+   * Renderer for prose written by editors in the CMS (currently the organisation
+   * description). Three deliberate choices:
+   *
+   *  html: false     The public "write for us" form collects a suggested
+   *                  organisation description, and an editor may paste that text
+   *                  straight into this field. Nothing arriving from a stranger
+   *                  should be able to inject markup into a published page.
+   *  breaks: true    A single Return becomes a line break, which is what someone
+   *                  typing into a box expects. Strict Markdown would silently
+   *                  swallow it and merge the lines.
+   *  linkify: true   A pasted bare URL becomes a working link.
+   */
+  const proseMarkdown = new MarkdownIt({ html: false, breaks: true, linkify: true });
+
+  /**
+   * markdown(text, demote)
+   *
+   * `demote` shifts every heading down by that many levels, so an author picking
+   * "Heading 2" in the editor cannot outrank or tie the heading of the panel their
+   * text sits inside. Every button in the editor stays available — only the
+   * rendered level moves, which keeps the page outline valid for screen readers.
+   */
+  eleventyConfig.addFilter("markdown", (value, demote = 0) => {
+    if (!value) return "";
+    const html = proseMarkdown.render(String(value));
+    if (!demote) return html;
+    return html.replace(
+      /<(\/?)h([1-6])\b/g,
+      (_m, slash, level) => `<${slash}h${Math.min(6, Number(level) + Number(demote))}`
+    );
+  });
+
   /**
    * Resolve an image reference from either source to a usable URL.
    *

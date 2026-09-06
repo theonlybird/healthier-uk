@@ -1325,3 +1325,58 @@ a.team-card:hover .team-card-blogs { color: var(--hu-coral-dark); }
 .section-intro { max-width: 880px; }
 .section-intro h2 { text-wrap: balance; }
 .section-intro .lead, .section-intro > p { max-width: 720px; margin-left: auto; margin-right: auto; }
+
+/* --------------------------------------------------------------------------
+   Organisation "About" panel on author pages
+   The description is editor-written Markdown, so it can hold paragraphs, lists,
+   subheadings and links. The site's prose styles live under .content-body, which
+   this card sits outside, so the panel needs its own. Headings arrive demoted by
+   two levels, meaning h3 is the largest an editor can produce here and it still
+   sits beneath the panel's own h2.
+   -------------------------------------------------------------------------- */
+.org-about > :first-child { margin-top: 0; }
+.org-about > :last-child { margin-bottom: 0; }
+.org-about p { margin-bottom: 1rem; }
+
+.org-about h3, .org-about h4, .org-about h5, .org-about h6 {
+  font-family: var(--font-display);
+  color: var(--hu-ink);
+  line-height: 1.3;
+  margin: 1.5rem 0 .5rem;
+}
+.org-about h3 { font-size: 1.08rem; }
+.org-about h4, .org-about h5, .org-about h6 { font-size: 1rem; }
+
+.org-about ul, .org-about ol { margin: 0 0 1rem; padding-left: 0; list-style: none; }
+.org-about li { position: relative; padding-left: 1.7rem; margin-bottom: .5rem; }
+.org-about li:last-child { margin-bottom: 0; }
+.org-about ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .58em;
+  width: 10px; height: 10px;
+  background: var(--hu-green-bright);
+  border-radius: 60% 10% 60% 10%;
+  transform: rotate(-20deg);
+}
+.org-about ol { counter-reset: hu-org-ol; }
+.org-about ol li { counter-increment: hu-org-ol; }
+.org-about ol li::before {
+  content: counter(hu-org-ol) ".";
+  position: absolute;
+  left: 0; top: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--hu-ink);
+}
+
+.org-about a { color: var(--color-accent-salmon); font-weight: 600; }
+.org-about strong { font-weight: 700; color: var(--hu-ink); }
+.org-about blockquote {
+  margin: 0 0 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--hu-border);
+  color: var(--hu-text-muted);
+}
+.org-about img { max-width: 100%; height: auto; border-radius: var(--radius-sm); }
+.org-about hr { border: 0; border-top: 1px solid var(--hu-border); margin: 1.25rem 0; }

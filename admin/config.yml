@@ -103,8 +103,8 @@ collections:
                   hint: "Lower case, hyphens, no spaces. Do not change it once people are linked to it." }
               - { name: url, label: "Website", widget: string, required: false }
               - { name: description, label: "About the organisation (up to 250 words)",
-                  widget: text, required: false,
-                  hint: "Optional. When filled in, it appears on the page of everyone who works there." }
+                  widget: markdown, required: false,
+                  hint: "Optional. Use the toolbar for bold, links, bullet points and subheadings. Appears on the page of everyone who works there." }
 
   # ---------------------------------------------------------------- people
   - name: team

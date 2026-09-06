@@ -32,8 +32,8 @@ eleventyComputed:
       {% if org.description %}
       <div class="card mb-5" style="background-color:var(--color-bg-alt); border-left:4px solid var(--color-accent-salmon);">
         <h2 style="font-size:1.3rem; margin-bottom:0.75rem;">About {{ org.name }}</h2>
-        <p style="margin-bottom:{% if org.url %}0.9rem{% else %}0{% endif %};">{{ org.description }}</p>
-        {% if org.url %}<a href="{{ org.url }}" class="post-readmore" style="margin-top:0;" rel="noopener">Visit {{ org.name }} &rarr;</a>{% endif %}
+        <div class="org-about">{{ org.description | markdown(2) | safe }}</div>
+        {% if org.url %}<a href="{{ org.url }}" class="post-readmore" style="margin-top:0.9rem;" rel="noopener">Visit {{ org.name }} &rarr;</a>{% endif %}
       </div>
       {% endif %}
 
