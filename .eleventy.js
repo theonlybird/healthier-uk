@@ -21,6 +21,27 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => (a.order || 0) - (b.order || 0)));
 
   // --- filters -----------------------------------------------------------
+  /**
+   * Resolve an image reference from either source to a usable URL.
+   *
+   * The CMS at /admin saves images as a path, because `public_folder` is set:
+   * "/assets/images/Gillian Orrow.png". Entries written by hand (and by the
+   * submission function) are bare filenames: "team-william-bird.png". Templates
+   * used to prepend the folder themselves, which doubled the path on anything
+   * saved through the CMS and produced a 404.
+   *
+   * Accept either shape, and percent-encode characters that are fine in a
+   * filename but not in a URL — spaces above all.
+   */
+  eleventyConfig.addFilter("imageUrl", (value) => {
+    if (!value) return "";
+    const raw = String(value).trim();
+    if (/^(https?:)?\/\//.test(raw) || raw.startsWith("data:")) return raw;
+    const name = raw.replace(/^\/+/, "").replace(/^assets\/images\//, "");
+    if (!name) return "";
+    return "assets/images/" + name.split("/").map(encodeURIComponent).join("/");
+  });
+
   eleventyConfig.addFilter("ukdate", (d) => {
     const dt = d instanceof Date ? d : new Date(d);
     const p = (n) => String(n).padStart(2, "0");

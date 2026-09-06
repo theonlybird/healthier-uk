@@ -38,7 +38,7 @@ eleventyComputed:
       {% endif %}
 
       <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; margin-bottom:2.5rem;">
-        <img src="assets/images/{{ m.photo }}" alt="{{ m.name }}" width="110" height="110" style="width:110px; height:110px; border-radius:50%; object-fit:cover; object-position:top; box-shadow:var(--shadow-sm);">
+        <img src="{{ m.photo | imageUrl }}" alt="{{ m.name }}" width="110" height="110" style="width:110px; height:110px; border-radius:50%; object-fit:cover; object-position:top; box-shadow:var(--shadow-sm);">
         <div>
           <p style="margin:0; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">{{ m.name }}</p>
           <p style="margin:.15rem 0 0; color:var(--hu-text-muted);">{{ m.role }}{% if org.name %} &bull; {{ org.name }}{% endif %}</p>

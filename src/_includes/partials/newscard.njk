@@ -1,6 +1,6 @@
 <a href="news-{{ p.fileSlug }}.html" class="post-card">
           <div class="post-card-image">
-            <img src="assets/images/{{ p.data.cardImage or p.data.image }}" alt="{{ p.data.cardImageAlt or p.data.imageAlt }}" loading="lazy">
+            <img src="{{ (p.data.cardImage or p.data.image) | imageUrl }}" alt="{{ p.data.cardImageAlt or p.data.imageAlt }}" loading="lazy">
           </div>
           <div class="post-card-body">
             <span class="post-date">{{ p.data.date | ukdate }}</span>

@@ -25,7 +25,7 @@ layout: layouts/base.njk
       {%- endif %}
 
       {%- if image %}
-      <img src="assets/images/{{ image }}" alt="{{ imageAlt }}">
+      <img src="{{ image | imageUrl }}" alt="{{ imageAlt }}">
       {%- endif %}
 
       {%- if introImage %}
@@ -35,7 +35,7 @@ layout: layouts/base.njk
 {{ content | safe }}
         </div>
         <div>
-          <img src="assets/images/{{ introImage }}" alt="{{ introImageAlt }}" style="border-radius:var(--radius-lg); box-shadow:var(--shadow-md);">
+          <img src="{{ introImage | imageUrl }}" alt="{{ introImageAlt }}" style="border-radius:var(--radius-lg); box-shadow:var(--shadow-md);">
         </div>
       </div>
       {%- else %}

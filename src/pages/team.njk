@@ -24,7 +24,7 @@ cta: true
 
         {% for m in collections.team %}<a href="author-{{ m.slug }}.html" class="team-card">
           <div class="team-card-image">
-            <img src="assets/images/{{ m.photo }}" alt="{{ m.name }}" loading="lazy">
+            <img src="{{ m.photo | imageUrl }}" alt="{{ m.name }}" loading="lazy">
           </div>
           <div class="team-card-body">
             <span class="team-card-role">{{ m.role }}</span>

@@ -21,7 +21,7 @@ layout: layouts/base.njk
   <section class="section">
     <div class="container container-narrow content-body">
       <p class="lead">{{ lead }}</p>
-      {% if image %}<img src="assets/images/{{ image }}" alt="{{ imageAlt }}" style="{% if imageStyle == "narrow" %}max-width:320px; border-radius:var(--radius-lg); margin: 1.5rem 0;{% else %}width:100%; border-radius:var(--radius-lg); margin:1.75rem 0;{% endif %}" loading="lazy">{% endif %}
+      {% if image %}<img src="{{ image | imageUrl }}" alt="{{ imageAlt }}" style="{% if imageStyle == "narrow" %}max-width:320px; border-radius:var(--radius-lg); margin: 1.5rem 0;{% else %}width:100%; border-radius:var(--radius-lg); margin:1.75rem 0;{% endif %}" loading="lazy">{% endif %}
       {{ content | safe }}
       {% if placeholder %}<p style="margin-top:2.5rem;font-size:.86rem;color:var(--hu-text-muted);font-style:italic;">Placeholder article &mdash; sample content used to demonstrate the blog layout.</p>{% endif %}
       <div style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
