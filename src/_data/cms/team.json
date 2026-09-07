@@ -167,6 +167,18 @@
       "photo": "/assets/images/pasted-image-1788642195915.png",
       "order": 17,
       "description": ""
+    },
+    {
+      "published": true,
+      "name": "Merron Simpson",
+      "slug": "merron_simpson",
+      "role": "CEO",
+      "orgSlug": "health_creation_alliance",
+      "orgSuggested": "",
+      "orgDescriptionSuggested": "",
+      "photo": "/assets/images/pasted-image-1788766333168.png",
+      "order": 4,
+      "description": ""
     }
   ]
 }
