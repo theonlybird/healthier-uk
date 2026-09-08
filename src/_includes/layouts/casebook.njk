@@ -1,0 +1,98 @@
+---
+layout: layouts/base.njk
+---
+{#
+  A casebook entry. Every section is a separate front-matter field rather than
+  one body of prose, so the same nine headings appear in the same order on every
+  entry — and so a later map can read town, region and project name off the file
+  without parsing anything.
+
+  All of this text arrives from a member of the public. It is rendered through
+  the `markdown` filter, which is configured with html:false, so nothing typed
+  into the form can inject markup into the page. Never switch these to `| safe`.
+#}
+  <div class="page-header">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="casebook.html">Casebook</a>
+        <span class="separator">/</span>
+        <span class="current">{{ title }}</span>
+      </nav>
+      <span class="post-date" style="display:block; margin-bottom:0.5rem;">
+        {% set where = casebookRegions | place({ town: town, region: region }) %}{% if where %}{{ where }} &bull; {% endif %}Added {{ date | ukdate }}
+      </span>
+      <h1>{{ title }}</h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container container-narrow content-body">
+
+      {% if image %}
+      <img src="{{ image | imageUrl }}" alt="{{ imageAlt or title }}"
+           style="width:100%; border-radius:var(--radius-lg); margin:0 0 2rem;" loading="lazy">
+      {% endif %}
+
+      <div class="casebook-entry">
+
+        <section class="casebook-section">
+          <h2>Population</h2>
+          {{ population | markdown(1) | safe }}
+        </section>
+
+        <section class="casebook-section">
+          <h2>Health challenge</h2>
+          {{ healthChallenge | markdown(1) | safe }}
+        </section>
+
+        {% if organisations %}
+        <section class="casebook-section">
+          <h2>Key organisations</h2>
+          <p>{{ organisations }}</p>
+        </section>
+        {% endif %}
+
+        <section class="casebook-section">
+          <h2>Actions taken</h2>
+          {{ actions | markdown(1) | safe }}
+        </section>
+
+        <section class="casebook-section">
+          <h2>Outcomes</h2>
+          {{ outcomes | markdown(1) | safe }}
+        </section>
+
+        <section class="casebook-section">
+          <h2>Lessons learned</h2>
+          {{ lessons | markdown(1) | safe }}
+        </section>
+
+        {% if furtherReading %}
+        <section class="casebook-section">
+          <h2>Further reading</h2>
+          {{ furtherReading | markdown(1) | safe }}
+        </section>
+        {% endif %}
+
+        {% if contact %}
+        <section class="casebook-section">
+          <h2>Contact</h2>
+          <p>{{ contact }}</p>
+        </section>
+        {% endif %}
+
+      </div>
+
+      <p class="casebook-provenance">
+        This case study was submitted by the people who ran it and reviewed by the
+        Healthier UK editorial team before publication. Figures and claims are theirs.
+      </p>
+
+      <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
+        <a href="casebook.html" class="btn btn-outline">&larr; All case studies</a>
+        <a href="submit-casebook.html" class="btn btn-accent">Add your own</a>
+      </div>
+    </div>
+  </section>

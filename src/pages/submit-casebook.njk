@@ -1,0 +1,171 @@
+---
+layout: "layouts/base.njk"
+title: "Add a case study"
+description: "Share your community health activation story with the Healthier UK Casebook. Entries are reviewed by the editorial team before they are published."
+permalink: "/submit-casebook.html"
+section: "casebook"
+cta: false
+---
+
+  <div class="page-header" id="casebook-intro">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="casebook.html">Casebook</a>
+        <span class="separator">/</span>
+        <span class="current">Add a case study</span>
+      </nav>
+      <h1>Healthier UK Casebook</h1>
+      <p class="lead">Complete this template to share your community health activation story.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container container-narrow">
+
+      <div class="card mb-5" id="casebook-steps" style="background-color:var(--color-bg-alt); border-left:4px solid var(--color-accent-salmon);">
+        <h3>What happens after you submit</h3>
+        <ol style="margin:0.75rem 0 0; padding-left:1.35rem; list-style:decimal;">
+          <li style="margin-bottom:.4rem;">Your case study goes to the Healthier UK editorial team &mdash; it does not appear on the site straight away.</li>
+          <li style="margin-bottom:.4rem;">We read it, and may come back to you with small suggestions.</li>
+          <li style="margin-bottom:.4rem;">Once approved it appears in the Casebook for anyone to read and learn from.</li>
+        </ol>
+        <p style="margin:0.9rem 0 0; font-size:.92rem; color:var(--hu-text-muted);">
+          It does not have to be a success story. What did not work, and why, is often the
+          most useful thing you can tell someone starting out.
+        </p>
+      </div>
+
+      <form id="casebook-form" class="contribute-form" novalidate>
+
+        <fieldset class="form-block">
+          <legend><h2>The project</h2></legend>
+
+          {# 50 characters, applied silently: the field simply stops accepting more. #}
+          <div class="field">
+            <label for="title">Name of project <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="title" name="title" required maxlength="50">
+          </div>
+
+          <div class="field">
+            <label for="town">Town or city <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="town" name="town" required maxlength="60" placeholder="Guildford">
+            <p class="hint">Where it happened. If it covered a wider area, name the main town or the district.</p>
+          </div>
+
+          <div class="field">
+            <label for="region">Region <span class="req" aria-hidden="true">*</span></label>
+            <select id="region" name="region" required>
+              <option value="">Choose a region&hellip;</option>
+              {% for r in casebookRegions %}<option value="{{ r.slug }}">{{ r.name }}</option>
+              {% endfor %}
+            </select>
+            <p class="hint">Used to group entries by place, so people can find work near them.</p>
+          </div>
+
+          <div class="field">
+            <label for="image">A picture of the project</label>
+            <input type="file" id="image" name="image" accept="image/jpeg,image/png,image/webp">
+            <p class="hint">Optional. JPG or PNG, up to 5MB. Please only send pictures you have permission to use, and avoid identifiable children.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-block">
+          <legend><h2>The story</h2></legend>
+
+          <div class="field">
+            <label for="population">Population <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="population" name="population" rows="5" required maxlength="900" data-wordlimit="100"
+                      placeholder="Describe your community or population group — age, location, demographics, size."></textarea>
+            <p class="hint"><span class="wordcount" data-for="population">0</span> of 100 words</p>
+          </div>
+
+          <div class="field">
+            <label for="healthChallenge">Health challenge <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="healthChallenge" name="healthChallenge" rows="5" required maxlength="900" data-wordlimit="100"
+                      placeholder="What specific health issue or challenge did your community wish to improve?"></textarea>
+            <p class="hint"><span class="wordcount" data-for="healthChallenge">0</span> of 100 words</p>
+          </div>
+
+          {# 100 characters, applied silently. #}
+          <div class="field">
+            <label for="organisations">Key organisations</label>
+            <input type="text" id="organisations" name="organisations" maxlength="100"
+                   placeholder="Partner organisations, stakeholders and collaborators">
+          </div>
+
+          <div class="field">
+            <label for="actions">Actions taken <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="actions" name="actions" rows="10" required maxlength="2200" data-wordlimit="250"
+                      placeholder="Describe the interventions, programmes or activities you put in place."></textarea>
+            <p class="hint"><span class="wordcount" data-for="actions">0</span> of 250 words</p>
+          </div>
+
+          <div class="field">
+            <label for="outcomes">Outcome/s <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="outcomes" name="outcomes" rows="10" required maxlength="2200" data-wordlimit="250"
+                      placeholder="What were the measurable results and impacts? Include data where you can."></textarea>
+            <p class="hint"><span class="wordcount" data-for="outcomes">0</span> of 250 words</p>
+          </div>
+
+          <div class="field">
+            <label for="lessons">Lessons learned <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="lessons" name="lessons" rows="10" required maxlength="2200" data-wordlimit="250"
+                      placeholder="Key insights, challenges you overcame, and what you would tell someone doing this next."></textarea>
+            <p class="hint"><span class="wordcount" data-for="lessons">0</span> of 250 words</p>
+          </div>
+
+          {# 100 characters, applied silently. #}
+          <div class="field">
+            <label for="furtherReading">Further reading</label>
+            <input type="text" id="furtherReading" name="furtherReading" maxlength="100"
+                   placeholder="A report, a web page or an evaluation">
+          </div>
+        </fieldset>
+
+        <fieldset class="form-block">
+          <legend><h2>Contact</h2></legend>
+
+          {# 50 characters, applied silently. This one is published. #}
+          <div class="field">
+            <label for="contact">Contact shown on the page</label>
+            <input type="text" id="contact" name="contact" maxlength="50"
+                   placeholder="Jane Smith, Active Guildford">
+            <p class="hint">Shown publicly, so that someone who wants to do the same thing can find you. Leave it blank if you would rather not be contacted.</p>
+          </div>
+
+          <div class="field">
+            <label for="submitterEmail">Your email <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="submitterEmail" name="submitterEmail" required autocomplete="email">
+            <p class="hint">Only used so the editorial team can come back to you about this entry. It is never published.</p>
+          </div>
+        </fieldset>
+
+        <div class="field field-check">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I am happy for Healthier UK to publish this case study, including the contact details above, and I have permission to share what is in it. <span class="req" aria-hidden="true">*</span></label>
+        </div>
+
+        <div id="turnstile-holder" data-sitekey=""></div>
+
+        <p class="form-error" id="casebook-error" role="alert" hidden></p>
+
+        <div class="btn-group" style="margin-top:1.5rem;">
+          <button type="submit" class="btn btn-primary btn-lg" id="casebook-submit-btn">Send for review</button>
+          <a href="casebook.html" class="btn btn-outline btn-lg">Back to the casebook</a>
+        </div>
+      </form>
+
+      <div id="casebook-success" class="card" hidden
+           style="text-align:center; padding:3.5rem 2rem; background-color:var(--color-bg-alt);">
+        <h2 style="margin-bottom:0.75rem;">Thank you</h2>
+        <p style="color:var(--hu-text-muted); max-width:46ch; margin:0 auto 1.75rem;">
+          Your case study has gone to the Healthier UK editorial team. We will be in touch at
+          the email address you gave us. Nothing appears in the Casebook until it has been reviewed.
+        </p>
+        <a href="casebook.html" class="btn btn-accent">Back to the casebook</a>
+      </div>
+
+    </div>
+  </section>

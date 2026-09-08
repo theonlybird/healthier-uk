@@ -1,0 +1,16 @@
+{#
+  data-search carries everything the search box should match on: the project,
+  where it is, who was involved and the challenge it set out to change.
+  data-region drives the region dropdown on the listing page.
+#}
+<a href="casebook-{{ c.fileSlug }}.html" class="post-card casebook-card"
+   data-region="{{ c.data.region }}"
+   data-search="{{ c.data.title }} {{ c.data.town }} {{ casebookRegions | regionName(c.data.region) }} {{ c.data.organisations }} {{ c.data.healthChallenge }} {{ c.data.population }}">
+  {% if c.data.image %}<div class="post-card-image"><img src="{{ c.data.image | imageUrl }}" alt="{{ c.data.imageAlt or c.data.title }}" loading="lazy"></div>{% endif %}
+  <div class="post-card-body">
+    <span class="post-date">{{ casebookRegions | place(c.data) }}</span>
+    <h3 class="post-title">{{ c.data.title }}</h3>
+    <p class="post-excerpt">{{ c.data.healthChallenge | truncateWords(32) }}</p>
+    <span class="post-readmore">Read the case study &rarr;</span>
+  </div>
+</a>

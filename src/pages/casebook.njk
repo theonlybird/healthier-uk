@@ -1,0 +1,68 @@
+---
+layout: layouts/base.njk
+title: "Casebook"
+description: "Real examples of communities creating health across the UK — what the challenge was, what was done, and what happened. Submitted by the people who ran them."
+permalink: "/casebook.html"
+section: "casebook"
+cta: true
+---
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="current">Casebook</span>
+      </nav>
+      <h1>Casebook</h1>
+      <p class="lead">Community health activation, written up by the people who did it. Every entry follows the same nine headings, so you can read across them &mdash; and borrow what works.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="card mb-5" style="background-color:var(--color-bg-alt); border-left:4px solid var(--color-accent-salmon);">
+        <h3>Share your community health activation story</h3>
+        <p style="margin-bottom:0.75rem;">
+          If your community has set out to change something about its health &mdash; however small,
+          and whether or not it worked &mdash; there is a place for it here. You do not need an
+          evaluation, a budget or a formal programme to write one.
+        </p>
+        <p style="margin-bottom:1.25rem;">
+          Entries go to the Healthier UK editorial team for review before they appear on this page.
+        </p>
+        <a href="submit-casebook.html" class="btn btn-accent btn-sm">Add a case study</a>
+      </div>
+
+      {% if collections.casebook | length %}
+      <div class="blog-search casebook-filters">
+        <label class="visually-hidden" for="casebook-search-input">Search the casebook</label>
+        <input type="search" id="casebook-search-input" class="blog-search-input"
+               data-search-target="#casebook-grid" data-search-noun="case study"
+               placeholder="Search by project, place, organisation or health challenge" autocomplete="off">
+        <label class="visually-hidden" for="casebook-region">Filter by region</label>
+        <select id="casebook-region" class="casebook-region-select" data-region-filter="#casebook-grid">
+          <option value="">Everywhere in the UK</option>
+          {% for r in casebookRegions %}<option value="{{ r.slug }}">{{ r.name }}</option>
+          {% endfor %}
+        </select>
+        <p class="blog-search-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="grid-3" id="casebook-grid">
+        {% for c in collections.casebook %}{% include "partials/casebookcard.njk" %}
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="card" style="text-align:center; padding:3.5rem 2rem;">
+        <h2 style="margin-bottom:0.75rem;">The first entry could be yours</h2>
+        <p style="color:var(--hu-text-muted); max-width:52ch; margin:0 auto 1.75rem;">
+          We are gathering the first case studies now. If you have run something in your
+          community that changed how healthy it is to live there, please write it up.
+        </p>
+        <a href="submit-casebook.html" class="btn btn-accent">Add a case study</a>
+      </div>
+      {% endif %}
+
+    </div>
+  </section>

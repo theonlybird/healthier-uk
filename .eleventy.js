@@ -18,6 +18,12 @@ module.exports = function (eleventyConfig) {
     c.getFilteredByGlob("src/news/*.md").filter(live)
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)));
 
+  // Casebook entries arrive through a public form, so they are sorted on the
+  // date they came in and, like blogs, never reach the site until reviewed.
+  eleventyConfig.addCollection("casebook", (c) =>
+    c.getFilteredByGlob("src/casebook/*.md").filter(live)
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)));
+
   eleventyConfig.addCollection("team", (c) =>
     (c.getAll()[0]?.data?.team || []).filter((m) => m.published !== false)
       .sort((a, b) => (a.order || 0) - (b.order || 0)));
@@ -75,6 +81,36 @@ module.exports = function (eleventyConfig) {
     const name = raw.replace(/^\/+/, "").replace(/^assets\/images\//, "");
     if (!name) return "";
     return "assets/images/" + name.split("/").map(encodeURIComponent).join("/");
+  });
+
+  /**
+   * regionName(regions, slug) — the readable name for a casebook region.
+   * The entry stores the slug so a later map can group on a stable key even
+   * if the label is reworded.
+   */
+  eleventyConfig.addFilter("regionName", (regions, slug) =>
+    ((regions || []).find((r) => r.slug === slug) || {}).name || "");
+
+  /**
+   * place(entry) — "Guildford, South East England", skipping either half if
+   * it is missing. Used on the card, the entry page and the search index.
+   */
+  eleventyConfig.addFilter("place", (regions, entry) => {
+    const region = ((regions || []).find((r) => r.slug === entry.region) || {}).name || "";
+    return [entry.town, region].filter(Boolean).join(", ");
+  });
+
+  /**
+   * truncateWords(text, n) — a plain-text excerpt for a card. Casebook entries
+   * have no separate summary field: the form asks for nine things already, and
+   * a tenth would be one more thing to fill in. The card borrows the opening of
+   * the health challenge instead, which is the sentence that says what the
+   * project was for.
+   */
+  eleventyConfig.addFilter("truncateWords", (value, n = 30) => {
+    const words = String(value || "").replace(/\s+/g, " ").trim().split(" ");
+    if (words.length <= n) return words.join(" ");
+    return words.slice(0, n).join(" ") + "\u2026";
   });
 
   eleventyConfig.addFilter("ukdate", (d) => {

@@ -262,123 +262,172 @@
 })();
 
 /* ------------------------------------------------------------------ *
- * Blog search — filters the already-rendered cards. No index to build,
- * no network request, works with JavaScript off (the cards just show).
+ * Card search — filters already-rendered cards. No index to build, no
+ * network request, and with JavaScript off the cards simply all show.
+ *
+ * Runs over every [data-search-target] on the page, so the blogs grid and
+ * the casebook grid share one implementation. A grid can also carry a
+ * [data-region-filter] dropdown; the two conditions are combined, and the
+ * status line reports the result of both together.
  * ------------------------------------------------------------------ */
-(function initBlogSearch() {
-  var input = document.querySelector('[data-search-target]');
-  if (!input) return;
-  var grid = document.querySelector(input.getAttribute('data-search-target'));
-  var status = document.querySelector('.blog-search-status');
-  if (!grid) return;
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-search]'));
+(function initCardSearch() {
+  document.querySelectorAll('[data-search-target]').forEach(function (input) {
+    var grid = document.querySelector(input.getAttribute('data-search-target'));
+    if (!grid) return;
 
-  function apply() {
-    var q = input.value.trim().toLowerCase();
-    var shown = 0;
-    cards.forEach(function (card) {
-      var hit = !q || card.getAttribute('data-search').toLowerCase().indexOf(q) !== -1;
-      card.hidden = !hit;
-      if (hit) shown++;
-    });
-    if (!status) return;
-    if (!q) status.textContent = '';
-    else if (shown === 0) status.textContent = 'No blogs match “' + input.value.trim() + '”.';
-    else status.textContent = shown + (shown === 1 ? ' blog' : ' blogs') + ' matching “' + input.value.trim() + '”.';
-  }
+    var wrap   = input.closest('.blog-search') || document;
+    var status = wrap.querySelector('.blog-search-status');
+    var region = document.querySelector('[data-region-filter="' + input.getAttribute('data-search-target') + '"]');
+    var noun   = input.getAttribute('data-search-noun') || 'blog';
+    var plural = noun === 'case study' ? 'case studies' : noun + 's';
+    var cards  = Array.prototype.slice.call(grid.querySelectorAll('[data-search]'));
 
-  input.addEventListener('input', apply);
-  input.addEventListener('search', apply);
+    function apply() {
+      var q = input.value.trim().toLowerCase();
+      var r = region ? region.value : '';
+      var shown = 0;
+
+      cards.forEach(function (card) {
+        var textHit   = !q || card.getAttribute('data-search').toLowerCase().indexOf(q) !== -1;
+        var regionHit = !r || card.getAttribute('data-region') === r;
+        var hit = textHit && regionHit;
+        card.hidden = !hit;
+        if (hit) shown++;
+      });
+
+      if (!status) return;
+      if (!q && !r) { status.textContent = ''; return; }
+
+      // Describe whichever filters are actually on, so the line reads as a
+      // sentence rather than as a list of empty slots.
+      var where = '';
+      if (r && region) where = ' in ' + region.options[region.selectedIndex].text;
+      var matching = q ? ' matching \u201C' + input.value.trim() + '\u201D' : '';
+
+      status.textContent = shown === 0
+        ? 'No ' + plural + matching + where + '.'
+        : shown + ' ' + (shown === 1 ? noun : plural) + matching + where + '.';
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('search', apply);
+    if (region) region.addEventListener('change', apply);
+  });
 })();
 
 /* ------------------------------------------------------------------ *
  * Contributor form — live word counts, friendly validation, and a
  * submission that keeps the reader on the page.
  * ------------------------------------------------------------------ */
-(function initContributeForm() {
-  var form = document.getElementById('contribute-form');
-  if (!form) return;
+(function initSubmissionForms() {
+  [
+    { form: 'contribute-form', error: 'form-error',     success: 'contribute-success',
+      button: 'submit-btn',          endpoint: '/api/submit',
+      hide: ['contribute-intro', 'contribute-steps'], files: ['photo', 'image'] },
+    { form: 'casebook-form',   error: 'casebook-error', success: 'casebook-success',
+      button: 'casebook-submit-btn', endpoint: '/api/submit-casebook',
+      hide: ['casebook-intro', 'casebook-steps'],     files: ['image'] },
+  ].forEach(setup);
 
-  var errorBox = document.getElementById('form-error');
-  var success  = document.getElementById('contribute-success');
-  var button   = document.getElementById('submit-btn');
+  function setup(cfg) {
+    var form = document.getElementById(cfg.form);
+    if (!form) return;
 
-  function words(s) { return s.trim() ? s.trim().split(/\s+/).length : 0; }
+    var errorBox = document.getElementById(cfg.error);
+    var success  = document.getElementById(cfg.success);
+    var button   = document.getElementById(cfg.button);
+    var buttonLabel = button ? button.textContent : 'Send for review';
 
-  Array.prototype.forEach.call(form.querySelectorAll('.wordcount'), function (out) {
-    var field = document.getElementById(out.getAttribute('data-for'));
-    if (!field) return;
-    var limit = parseInt(field.getAttribute('data-wordlimit'), 10);
-    var update = function () {
-      var n = words(field.value);
-      out.textContent = n;
-      if (limit) out.parentNode.classList.toggle('over', n > limit);
-    };
-    field.addEventListener('input', update);
-    update();
-  });
+    function words(s) { return s.trim() ? s.trim().split(/\s+/).length : 0; }
 
-  function fail(message, field) {
-    errorBox.textContent = message;
-    errorBox.hidden = false;
-    if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
-    errorBox.scrollIntoView({ block: 'center' });
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    errorBox.hidden = true;
-    Array.prototype.forEach.call(form.querySelectorAll('[aria-invalid]'), function (el) {
-      el.removeAttribute('aria-invalid');
+    Array.prototype.forEach.call(form.querySelectorAll('.wordcount'), function (out) {
+      var field = document.getElementById(out.getAttribute('data-for'));
+      if (!field) return;
+      var limit = parseInt(field.getAttribute('data-wordlimit'), 10);
+      var update = function () {
+        var n = words(field.value);
+        out.textContent = n;
+        if (limit) out.parentNode.classList.toggle('over', n > limit);
+      };
+      field.addEventListener('input', update);
+      update();
     });
 
-    var required = form.querySelectorAll('[required]');
-    for (var i = 0; i < required.length; i++) {
-      var f = required[i];
-      var empty = f.type === 'checkbox' ? !f.checked : !f.value.trim();
-      if (empty) {
-        return fail(f.type === 'checkbox'
-          ? 'Please confirm you are happy for us to publish this.'
-          : 'Please fill in “' + form.querySelector('label[for="' + f.id + '"]').textContent.replace('*', '').trim() + '”.', f);
-      }
-      if (f.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim())) {
-        return fail('That email address does not look right.', f);
-      }
+    function fail(message, field) {
+      errorBox.textContent = message;
+      errorBox.hidden = false;
+      if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
+      errorBox.scrollIntoView({ block: 'center' });
     }
 
-    var org = document.getElementById('orgDescription');
-    if (org && words(org.value) > 250) {
-      return fail('The organisation description is over 250 words — please trim it a little.', org);
-    }
-
-    for (var j = 0; j < 2; j++) {
-      var file = [document.getElementById('photo'), document.getElementById('image')][j];
-      if (file && file.files[0] && file.files[0].size > 5 * 1024 * 1024) {
-        return fail('“' + file.files[0].name + '” is larger than 5MB. Please use a smaller image.', file);
-      }
-    }
-
-    button.setAttribute('aria-busy', 'true');
-    button.textContent = 'Sending…';
-
-    fetch('/api/submit', { method: 'POST', body: new FormData(form) })
-      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
-      .then(function (res) {
-        if (!res.ok) throw new Error(res.d && res.d.error ? res.d.error : 'Submission failed');
-        form.hidden = true;
-        // Once it is sent, the page is just the thank-you: the page heading and
-        // the "what happens next" steps have both served their purpose.
-        var intro = document.getElementById('contribute-intro');
-        var steps = document.getElementById('contribute-steps');
-        if (intro) intro.hidden = true;
-        if (steps) steps.hidden = true;
-        success.hidden = false;
-        window.scrollTo(0, 0);
-      })
-      .catch(function (err) {
-        button.removeAttribute('aria-busy');
-        button.textContent = 'Send for review';
-        fail('Sorry — we could not send that just now (' + err.message + '). Please try again, or email the team.');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errorBox.hidden = true;
+      Array.prototype.forEach.call(form.querySelectorAll('[aria-invalid]'), function (el) {
+        el.removeAttribute('aria-invalid');
       });
-  });
+
+      var required = form.querySelectorAll('[required]');
+      for (var i = 0; i < required.length; i++) {
+        var f = required[i];
+        var empty = f.type === 'checkbox' ? !f.checked : !f.value.trim();
+        if (empty) {
+          if (f.type === 'checkbox') {
+            return fail('Please confirm you are happy for us to publish this.', f);
+          }
+          var label = form.querySelector('label[for="' + f.id + '"]').textContent.replace('*', '').trim();
+          // A dropdown is chosen from, not filled in.
+          var verb = f.tagName === 'SELECT' ? 'Please choose a ' : 'Please fill in “';
+          return fail(f.tagName === 'SELECT'
+            ? verb + label.toLowerCase() + '.'
+            : verb + label + '”.', f);
+        }
+        if (f.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim())) {
+          return fail('That email address does not look right.', f);
+        }
+      }
+
+      // Every field that advertises a word limit is checked the same way. The
+      // silent character caps need no check here — maxlength already stopped them.
+      var capped = form.querySelectorAll('[data-wordlimit]');
+      for (var k = 0; k < capped.length; k++) {
+        var c = capped[k];
+        var limit = parseInt(c.getAttribute('data-wordlimit'), 10);
+        if (limit && words(c.value) > limit) {
+          var name = form.querySelector('label[for="' + c.id + '"]').textContent.replace('*', '').trim();
+          return fail('“' + name + '” is over ' + limit + ' words — please trim it a little.', c);
+        }
+      }
+
+      for (var j = 0; j < cfg.files.length; j++) {
+        var file = document.getElementById(cfg.files[j]);
+        if (file && file.files[0] && file.files[0].size > 5 * 1024 * 1024) {
+          return fail('“' + file.files[0].name + '” is larger than 5MB. Please use a smaller image.', file);
+        }
+      }
+
+      button.setAttribute('aria-busy', 'true');
+      button.textContent = 'Sending…';
+
+      fetch(cfg.endpoint, { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.d && res.d.error ? res.d.error : 'Submission failed');
+          form.hidden = true;
+          // Once it is sent, the page is just the thank-you: the page heading and
+          // the "what happens next" steps have both served their purpose.
+          cfg.hide.forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) el.hidden = true;
+          });
+          success.hidden = false;
+          window.scrollTo(0, 0);
+        })
+        .catch(function (err) {
+          button.removeAttribute('aria-busy');
+          button.textContent = buttonLabel;
+          fail('Sorry — we could not send that just now (' + err.message + '). Please try again, or email the team.');
+        });
+    });
+  }
 })();

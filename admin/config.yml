@@ -60,6 +60,74 @@ collections:
     sortable_fields: [date, title]
     fields: *blogFields
 
+  # ------------------------------------------------------------ casebook bay
+  - name: casebookSubmissions
+    label: "Casebook — awaiting review"
+    label_singular: "case study"
+    description: >
+      Case studies sent in through the Casebook form. Nothing here is on the live
+      site. Read it, edit anything you want to change, then set "Published" to on
+      and save. The word and character limits below are the ones the form applied;
+      you are not bound by them when editing.
+    folder: src/casebook
+    extension: md
+    format: frontmatter
+    create: false
+    filter: { field: published, value: false }
+    summary: "{{title}} — {{fields.town}} ({{submittedAt | date('DD/MM/YYYY')}})"
+    sortable_fields: [submittedAt, title]
+    fields: &casebookFields
+      - { name: published, label: "Published on the site", widget: boolean, default: false }
+      - { name: title, label: "Name of project", widget: string }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: town, label: "Town or city", widget: string }
+      - name: region
+        label: "Region"
+        widget: relation
+        collection: casebookRegions
+        file: regions
+        search_fields: ["casebookRegions.*.name"]
+        display_fields: ["casebookRegions.*.name"]
+        value_field: "casebookRegions.*.slug"
+        hint: "Groups the entry on the Casebook page, and will place its pin when the map is built."
+      - { name: image, label: "Picture of the project", widget: image, required: false }
+      - { name: imageAlt, label: "Description of that picture", widget: string, required: false,
+          hint: "Read aloud by screen readers. Describe what is in the photo." }
+      - { name: population, label: "Population", widget: text,
+          hint: "The community or population group. Around 100 words." }
+      - { name: healthChallenge, label: "Health challenge", widget: text,
+          hint: "What the community wished to improve. Around 100 words — also used as the excerpt on the Casebook page." }
+      - { name: organisations, label: "Key organisations", widget: string, required: false,
+          hint: "A short list. The form allowed 100 characters." }
+      - { name: actions, label: "Actions taken", widget: text,
+          hint: "Around 250 words." }
+      - { name: outcomes, label: "Outcome/s", widget: text,
+          hint: "Around 250 words." }
+      - { name: lessons, label: "Lessons learned", widget: text,
+          hint: "Around 250 words." }
+      - { name: furtherReading, label: "Further reading", widget: string, required: false,
+          hint: "The form allowed 100 characters." }
+      - { name: contact, label: "Contact shown on the page", widget: string, required: false,
+          hint: "Published. The form allowed 50 characters. Clear it if they would rather not be contacted." }
+      - { name: description, label: "Search-engine description", widget: text, required: false }
+      - { name: submittedBy, label: "Submitted by (email)", widget: string, required: false,
+          hint: "Never published — it is here so you can reply to them." }
+      - { name: submittedAt, label: "Submitted at", widget: datetime, required: false }
+
+  # --------------------------------------------------------------- casebook
+  - name: casebook
+    label: "Casebook"
+    label_singular: "case study"
+    description: "Case studies that are live on the site."
+    folder: src/casebook
+    extension: md
+    format: frontmatter
+    create: true
+    filter: { field: published, value: true }
+    summary: "{{title}} — {{fields.town}}"
+    sortable_fields: [date, title]
+    fields: *casebookFields
+
   # ---------------------------------------------------------------- news
   - name: news
     label: "News & events"
@@ -229,6 +297,27 @@ collections:
       - { name: introImage, label: "Intro picture", widget: image, required: false }
       - { name: introImageAlt, label: "Intro picture description", widget: string, required: false }
       - { name: nextClass, label: "Next button style", widget: hidden, required: false }
+
+  # -------------------------------------------------------- casebook regions
+  - name: casebookRegions
+    label: "Casebook regions"
+    files:
+      - name: regions
+        label: "Regions (Casebook)"
+        file: src/_data/cms/casebookRegions.json
+        description: >
+          The region list behind the Casebook form and its filter. Changing a name
+          is safe; changing a reference orphans every entry already using it.
+        fields:
+          - name: casebookRegions
+            label: Regions
+            label_singular: region
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: slug, label: "Reference", widget: string,
+                  hint: "Lower case, hyphens, no spaces. Do not change it once entries are using it." }
+              - { name: name, label: "Name", widget: string }
 
   # ---------------------------------------------------------------- England regions
   - name: englandRegions

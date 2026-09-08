@@ -1,0 +1,17 @@
+{
+  "casebookRegions": [
+    { "slug": "north-east",        "name": "North East England" },
+    { "slug": "north-west",        "name": "North West England" },
+    { "slug": "yorkshire-humber",  "name": "Yorkshire and the Humber" },
+    { "slug": "east-midlands",     "name": "East Midlands" },
+    { "slug": "west-midlands",     "name": "West Midlands" },
+    { "slug": "east-of-england",   "name": "East of England" },
+    { "slug": "london",            "name": "London" },
+    { "slug": "south-east",        "name": "South East England" },
+    { "slug": "south-west",        "name": "South West England" },
+    { "slug": "scotland",          "name": "Scotland" },
+    { "slug": "wales",             "name": "Wales" },
+    { "slug": "northern-ireland",  "name": "Northern Ireland" },
+    { "slug": "uk-wide",           "name": "UK-wide or more than one region" }
+  ]
+}
