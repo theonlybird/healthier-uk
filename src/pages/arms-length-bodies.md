@@ -35,8 +35,8 @@ Health is shaped far more by decisions made outside the Department of Health and
 ## **Arms Length Body collaboration**
 
 - **Homes England:** As the government’s housing and regeneration agency we believe that affordable, quality homes in well-designed places are key to improving people’s lives. Together with our partners, we’re accelerating the pace of house building and regeneration across the country.
-- **Active Travel England :** "Our vision is for walking, wheeling and cycling to be an affordable, safe, and accessible choice for everyone. Our goal is to ensure that more people are making that choice every day".
+- **Active Travel England:** "Our vision is for walking, wheeling and cycling to be an affordable, safe, and accessible choice for everyone. Our goal is to ensure that more people are making that choice every day".
 - **Natural England:** "Our purpose is to help conserve, enhance and manage the natural environment for the benefit of present and future generations, thereby contributing to sustainable development".
 - **Sport England:** "We’re here to invest in sport and physical activity to make it a normal part of life for everyone in England, regardless of who you are".
-- **Arts Council England: "**We are the national development agency for creativity and culture. We help people in every corner of the country to experience and benefit from creativity".
-- **Historic England: "**We are the public body that helps people care for, enjoy and celebrate England's spectacular historic environment".
+- **Arts Council England:** "We are the national development agency for creativity and culture. We help people in every corner of the country to experience and benefit from creativity".
+- **Historic England:** "We are the public body that helps people care for, enjoy and celebrate England's spectacular historic environment".
